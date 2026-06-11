@@ -23,4 +23,7 @@ https://edwardslin007.github.io/quiz-bank-memory-page/
 - v2: https://edwardslin007.github.io/quiz-bank-memory-page/v2/  
   第二个版本，包含题1-题6，共720题，并优化题目、选项和答案展示样式。
 
-更新时间：2026-06-11 20:44
+- v3: https://edwardslin007.github.io/quiz-bank-memory-page/v3/  
+  第三个版本，保留 v1 简洁多列排版风格不变，扩展为题1-题6共720题，一页连续滚动查看。
+
+更新时间：2026-06-11 20:49

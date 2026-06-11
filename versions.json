@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-11 20:44",
+  "updated_at": "2026-06-11 20:49",
   "policy": "Versioned pages are stored under /v1/, /v2/, /v3/, ... New versions must create a new version folder and must not overwrite old version folders.",
   "versions": [
     {
@@ -7,14 +7,21 @@
       "title": "题1 单题库速记版",
       "desc": "第一个版本：只包含题1，共120题。保留原始页面样式和内容。",
       "url": "./v1/",
-      "commit": "aa4dafc"
+      "path": "/v1/"
     },
     {
       "version": "v2",
-      "title": "题1-题6 合并速记版",
-      "desc": "第二个版本：追加题2到题6，共720题，并优化题目、选项和答案展示样式。",
+      "title": "题1-题6 强化样式版",
+      "desc": "第二个版本：包含题1-题6，共720题，并优化题目、选项和答案展示样式。",
       "url": "./v2/",
-      "commit": "b37959a"
+      "path": "/v2/"
+    },
+    {
+      "version": "v3",
+      "title": "题1-题6 v1风格一页流版",
+      "desc": "第三个版本：保留v1简洁多列卡片排版风格，只扩展为题1-题6共720题，适合从头到尾连续滚动背诵。",
+      "url": "./v3/",
+      "path": "/v3/"
     }
   ],
   "url_rule": "Every concrete version URL must include a version suffix path segment such as /v1/, /v2/, /v3/. The root URL is only a version index."
