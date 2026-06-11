@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>题1 题库速记</title>
+<style>
+  :root {
+    --bg:#f6f7f8; --card:#fff; --text:#1f2937; --muted:#6b7280; --line:#d8dee8;
+    --answer:#0f766e; --answer-bg:#e6fffa; --soft:#eef2f7;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif; font-size:14px; }
+  header { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); padding:10px 14px; }
+  .headrow { display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  h1 { margin:0; font-size:18px; letter-spacing:.2px; }
+  .meta { color:var(--muted); font-size:12px; margin-top:3px; }
+  .tools { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  input, select, button { height:30px; border:1px solid var(--line); border-radius:6px; background:#fff; color:var(--text); padding:0 9px; font-size:13px; }
+  input { width:230px; }
+  button { cursor:pointer; }
+  main { padding:10px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:8px; align-items:start; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:8px 9px; box-shadow:0 1px 2px rgba(0,0,0,.03); break-inside:avoid; }
+  .top { display:flex; gap:6px; align-items:center; margin-bottom:5px; white-space:nowrap; }
+  .no { display:inline-flex; align-items:center; justify-content:center; min-width:28px; height:22px; border-radius:5px; background:#111827; color:#fff; font-weight:700; font-size:12px; }
+  .type { color:var(--muted); background:var(--soft); border-radius:5px; padding:3px 6px; font-size:12px; }
+  .answer { margin-left:auto; color:var(--answer); background:var(--answer-bg); border:1px solid #99f6e4; border-radius:5px; padding:3px 7px; font-weight:700; font-size:13px; }
+  .question { font-weight:650; line-height:1.35; margin:4px 0 5px; }
+  .options { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:3px 6px; }
+  .option { min-height:24px; display:flex; gap:5px; align-items:flex-start; padding:3px 5px; border-radius:5px; border:1px solid transparent; line-height:1.3; }
+  .option b { color:#374151; flex:0 0 16px; }
+  .option.correct { background:var(--answer-bg); border-color:#99f6e4; color:#064e3b; font-weight:700; }
+  .answerText { margin-top:5px; padding-top:5px; border-top:1px dashed var(--line); color:#065f46; line-height:1.35; font-size:13px; }
+  .empty { display:none; text-align:center; color:var(--muted); padding:40px; }
+  @media (min-width:1500px) { .grid { grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); } body { font-size:13px; } .card { padding:7px 8px; } }
+  @media (max-width:760px) { .grid { grid-template-columns:1fr; } .options { grid-template-columns:1fr; } input { width:180px; } header { position:static; } }
+  @media print { header { position:static; } body { background:#fff; font-size:10.5px; } main { padding:0; } .grid { display:block; column-count:3; column-gap:8px; } .card { margin:0 0 6px; box-shadow:none; page-break-inside:avoid; } .tools { display:none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="headrow">
+    <div>
+      <h1>题1 题库速记</h1>
+      <div class="meta">共 <b id="visibleCount">120</b> / 120 题；单选题 60，多选题 20，判断题 40；生成时间：2026-06-11 19:30</div>
+    </div>
+    <div class="tools">
+      <input id="q" type="search" placeholder="搜索题目/选项/答案…" />
+      <select id="type">
+        <option value="">全部题型</option>
+        <option value="单选题">单选题（60）</option><option value="多选题">多选题（20）</option><option value="判断题">判断题（40）</option>
+      </select>
+      <button id="compact">紧凑/舒展</button>
+      <button onclick="window.print()">打印/另存 PDF</button>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="grid" id="grid">
+    <article class="card" data-type="单选题" data-answer="D" data-search="1 单选题 数据标注场地要求标注员操作电脑配备双显示器，主要目的是？ A. 减少视觉疲劳 | B. 便于质量监控 | C. 增加数据安全 | D. 提高标注效率 D">
+      <div class="top"><span class="no">1</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">数据标注场地要求标注员操作电脑配备双显示器，主要目的是？</div>
+      <ol class="options"><li class="option"><b>A</b><span>减少视觉疲劳</span></li><li class="option"><b>B</b><span>便于质量监控</span></li><li class="option"><b>C</b><span>增加数据安全</span></li><li class="option correct"><b>D</b><span>提高标注效率</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 提高标注效率）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="2 单选题 在Word中，当你插入一张很大的图片，只希望显示图片的一部分（例如裁剪掉周围空白），应该使用什么功能？ A. 图片压缩 | B. 形状填充 | C. 调整大小 | D. 裁剪 D">
+      <div class="top"><span class="no">2</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">在Word中，当你插入一张很大的图片，只希望显示图片的一部分（例如裁剪掉周围空白），应该使用什么功能？</div>
+      <ol class="options"><li class="option"><b>A</b><span>图片压缩</span></li><li class="option"><b>B</b><span>形状填充</span></li><li class="option"><b>C</b><span>调整大小</span></li><li class="option correct"><b>D</b><span>裁剪</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 裁剪）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="3 单选题 电商平台智能客服在“双十一”期间响应延迟显著增加，技术团队通过引入Redis缓存用户会话数据来缓解数据库压力。这种优化属于： A. 性能优化 | B. 交互优化 | C. 安全性优化 | D. 功能优化 A">
+      <div class="top"><span class="no">3</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">电商平台智能客服在“双十一”期间响应延迟显著增加，技术团队通过引入Redis缓存用户会话数据来缓解数据库压力。这种优化属于：</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>性能优化</span></li><li class="option"><b>B</b><span>交互优化</span></li><li class="option"><b>C</b><span>安全性优化</span></li><li class="option"><b>D</b><span>功能优化</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 性能优化）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="4 单选题 一名新入职的标注员在使用LabelImg进行图像标注时，发现每次关闭软件后之前保存的标注信息都能正常打开。这主要得益于该工具的什么设计？ A. 软件安装时写入了注册表 | B. 操作系统提供了文件恢复功能 | C. 自动将标注数据同步至云端 | D. 标注结果持久化存储为XML文件 D">
+      <div class="top"><span class="no">4</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">一名新入职的标注员在使用LabelImg进行图像标注时，发现每次关闭软件后之前保存的标注信息都能正常打开。这主要得益于该工具的什么设计？</div>
+      <ol class="options"><li class="option"><b>A</b><span>软件安装时写入了注册表</span></li><li class="option"><b>B</b><span>操作系统提供了文件恢复功能</span></li><li class="option"><b>C</b><span>自动将标注数据同步至云端</span></li><li class="option correct"><b>D</b><span>标注结果持久化存储为XML文件</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 标注结果持久化存储为XML文件）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="5 单选题 在智能体开发中，为调用第三方API（如支付接口）并处理返回结果，应优先考虑哪种节点？ A. 开始节点 | B. 循环节点 | C. 插件调用节点 | D. 变量聚合节点 C">
+      <div class="top"><span class="no">5</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">在智能体开发中，为调用第三方API（如支付接口）并处理返回结果，应优先考虑哪种节点？</div>
+      <ol class="options"><li class="option"><b>A</b><span>开始节点</span></li><li class="option"><b>B</b><span>循环节点</span></li><li class="option correct"><b>C</b><span>插件调用节点</span></li><li class="option"><b>D</b><span>变量聚合节点</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 插件调用节点）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="6 单选题 构建电商推荐系统的用户画像时，需要将“点击”“购买”“收藏”等行为转化为数值特征，且希望保留行为与转化目标之间的关系。应使用哪种编码方式？ A. 二进制编码 | B. 标签编码 | C. 独热编码 | D. 目标编码 D">
+      <div class="top"><span class="no">6</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">构建电商推荐系统的用户画像时，需要将“点击”“购买”“收藏”等行为转化为数值特征，且希望保留行为与转化目标之间的关系。应使用哪种编码方式？</div>
+      <ol class="options"><li class="option"><b>A</b><span>二进制编码</span></li><li class="option"><b>B</b><span>标签编码</span></li><li class="option"><b>C</b><span>独热编码</span></li><li class="option correct"><b>D</b><span>目标编码</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 目标编码）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="7 单选题 在线考试平台为防止作弊，增加了人脸识别与屏幕监控功能。这种优化主要提升了系统的： A. 用户体验 | B. 交互性 | C. 性能 | D. 安全性 D">
+      <div class="top"><span class="no">7</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">在线考试平台为防止作弊，增加了人脸识别与屏幕监控功能。这种优化主要提升了系统的：</div>
+      <ol class="options"><li class="option"><b>A</b><span>用户体验</span></li><li class="option"><b>B</b><span>交互性</span></li><li class="option"><b>C</b><span>性能</span></li><li class="option correct"><b>D</b><span>安全性</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 安全性）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="8 单选题 评估一个二分类模型时，正负样本比例严重失衡（正样本仅占1%）。应优先选用哪个指标来评估模型性能？ A. F1-score | B. 精确率 | C. 召回率 | D. 准确率 A">
+      <div class="top"><span class="no">8</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">评估一个二分类模型时，正负样本比例严重失衡（正样本仅占1%）。应优先选用哪个指标来评估模型性能？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>F1-score</span></li><li class="option"><b>B</b><span>精确率</span></li><li class="option"><b>C</b><span>召回率</span></li><li class="option"><b>D</b><span>准确率</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. F1-score）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="9 单选题 你正在使用Excel管理标注任务进度，突然需要插入当前日期和时间，以下快捷键正确的是？ A. Ctrl+; 然后空格 Ctrl+Shift+; | B. Ctrl+Shift+; | C. Ctrl+: | D. Ctrl+Shift+: A">
+      <div class="top"><span class="no">9</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">你正在使用Excel管理标注任务进度，突然需要插入当前日期和时间，以下快捷键正确的是？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>Ctrl+; 然后空格 Ctrl+Shift+;</span></li><li class="option"><b>B</b><span>Ctrl+Shift+;</span></li><li class="option"><b>C</b><span>Ctrl+:</span></li><li class="option"><b>D</b><span>Ctrl+Shift+:</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. Ctrl+; 然后空格 Ctrl+Shift+;）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="10 单选题 某自动驾驶公司需要标注2万张街景图像中的车辆和行人。项目经理希望提升标注效率，决定在CVAT中使用AI辅助功能。以下哪项操作最符合这一目标？ A. 加载预训练模型自动生成初始检测框，标注员仅需修正 | B. 禁用所有快捷键以避免误操作 | C. 要求标注员逐帧手动绘制多边形 | D. 为每张图像单独创建任务 A">
+      <div class="top"><span class="no">10</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">某自动驾驶公司需要标注2万张街景图像中的车辆和行人。项目经理希望提升标注效率，决定在CVAT中使用AI辅助功能。以下哪项操作最符合这一目标？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>加载预训练模型自动生成初始检测框，标注员仅需修正</span></li><li class="option"><b>B</b><span>禁用所有快捷键以避免误操作</span></li><li class="option"><b>C</b><span>要求标注员逐帧手动绘制多边形</span></li><li class="option"><b>D</b><span>为每张图像单独创建任务</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 加载预训练模型自动生成初始检测框，标注员仅需修正）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="11 单选题 在对话系统设计中，“槽位填充”主要用于解决什么问题？ A. 从用户输入中提取关键信息 | B. 生成自然语言回复 | C. 管理多轮对话上下文 | D. 识别用户情感倾向 A">
+      <div class="top"><span class="no">11</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">在对话系统设计中，“槽位填充”主要用于解决什么问题？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>从用户输入中提取关键信息</span></li><li class="option"><b>B</b><span>生成自然语言回复</span></li><li class="option"><b>C</b><span>管理多轮对话上下文</span></li><li class="option"><b>D</b><span>识别用户情感倾向</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 从用户输入中提取关键信息）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="12 单选题 在数据标注过程中，你需要批量重命名1000张图片文件，使其按照“image_0001.jpg”的格式连续编号。以下哪种操作最高效？ A. 编写一个简单的批处理脚本或使用命令行ren命令 | B. 将所有文件复制到新文件夹后自动命名 | C. 使用Photoshop批量处理 | D. 使用Windows资源管理器逐个重命名 A">
+      <div class="top"><span class="no">12</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">在数据标注过程中，你需要批量重命名1000张图片文件，使其按照“image_0001.jpg”的格式连续编号。以下哪种操作最高效？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>编写一个简单的批处理脚本或使用命令行ren命令</span></li><li class="option"><b>B</b><span>将所有文件复制到新文件夹后自动命名</span></li><li class="option"><b>C</b><span>使用Photoshop批量处理</span></li><li class="option"><b>D</b><span>使用Windows资源管理器逐个重命名</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 编写一个简单的批处理脚本或使用命令行ren命令）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="B" data-search="13 单选题 广告营销智能体在优化创意生成模型时，使用七步分析法。在“原因分析”阶段，团队绘制了鱼骨图，发现“数据标注不一致”是关键根因。这体现了： A. 问题定义清晰 | B. 工具应用得当 | C. 目标设定合理 | D. 风险控制有效 B">
+      <div class="top"><span class="no">13</span><span class="type">单选题</span><span class="answer">答案 B</span></div>
+      <div class="question">广告营销智能体在优化创意生成模型时，使用七步分析法。在“原因分析”阶段，团队绘制了鱼骨图，发现“数据标注不一致”是关键根因。这体现了：</div>
+      <ol class="options"><li class="option"><b>A</b><span>问题定义清晰</span></li><li class="option correct"><b>B</b><span>工具应用得当</span></li><li class="option"><b>C</b><span>目标设定合理</span></li><li class="option"><b>D</b><span>风险控制有效</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 工具应用得当）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="14 单选题 在图像关键点标注质检中，发现标注的点位偏离了实际关节位置。这主要违反了哪类质量要求？ A. 关键点数量 | B. 遮挡处理 | C. 点位准确性 | D. 点序一致性 C">
+      <div class="top"><span class="no">14</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">在图像关键点标注质检中，发现标注的点位偏离了实际关节位置。这主要违反了哪类质量要求？</div>
+      <ol class="options"><li class="option"><b>A</b><span>关键点数量</span></li><li class="option"><b>B</b><span>遮挡处理</span></li><li class="option correct"><b>C</b><span>点位准确性</span></li><li class="option"><b>D</b><span>点序一致性</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 点位准确性）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="15 单选题 制定数据标注规范时，对于“模糊”情况（如遮挡、光线不足）如何处理，应详细说明。这体现了规范制定的什么原则？ A. 可操作性 | B. 通用性 | C. 简洁性 | D. 完整性 A">
+      <div class="top"><span class="no">15</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">制定数据标注规范时，对于“模糊”情况（如遮挡、光线不足）如何处理，应详细说明。这体现了规范制定的什么原则？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>可操作性</span></li><li class="option"><b>B</b><span>通用性</span></li><li class="option"><b>C</b><span>简洁性</span></li><li class="option"><b>D</b><span>完整性</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 可操作性）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="16 单选题 在设计一款“智能会议纪要生成”工具时，定义“纪要准确率不低于95%”作为项目是否成功的衡量标准。这个标准的定义应在哪个阶段完成？ A. 数据采集与标注阶段 | B. 系统部署与上线阶段 | C. 模型训练与调优阶段 | D. 需求分析与目标定义阶段 D">
+      <div class="top"><span class="no">16</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">在设计一款“智能会议纪要生成”工具时，定义“纪要准确率不低于95%”作为项目是否成功的衡量标准。这个标准的定义应在哪个阶段完成？</div>
+      <ol class="options"><li class="option"><b>A</b><span>数据采集与标注阶段</span></li><li class="option"><b>B</b><span>系统部署与上线阶段</span></li><li class="option"><b>C</b><span>模型训练与调优阶段</span></li><li class="option correct"><b>D</b><span>需求分析与目标定义阶段</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 需求分析与目标定义阶段）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="17 单选题 在特征选择过程中，使用卡方检验评估每个特征与目标变量之间的相关性，并筛选出排名靠前的特征。这种方法是基于什么原理？ A. 基于统计检验筛选 | B. 基于嵌入法筛选 | C. 基于迭代搜索筛选 | D. 基于模型筛选 A">
+      <div class="top"><span class="no">17</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">在特征选择过程中，使用卡方检验评估每个特征与目标变量之间的相关性，并筛选出排名靠前的特征。这种方法是基于什么原理？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>基于统计检验筛选</span></li><li class="option"><b>B</b><span>基于嵌入法筛选</span></li><li class="option"><b>C</b><span>基于迭代搜索筛选</span></li><li class="option"><b>D</b><span>基于模型筛选</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 基于统计检验筛选）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="18 单选题 在测试智能体时，需要验证用户输入“帮我查下订单12345”能否正确调用订单查询功能，这属于什么类型的测试？ A. 安全测试 | B. 压力测试 | C. 集成测试 | D. 单元测试 C">
+      <div class="top"><span class="no">18</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">在测试智能体时，需要验证用户输入“帮我查下订单12345”能否正确调用订单查询功能，这属于什么类型的测试？</div>
+      <ol class="options"><li class="option"><b>A</b><span>安全测试</span></li><li class="option"><b>B</b><span>压力测试</span></li><li class="option correct"><b>C</b><span>集成测试</span></li><li class="option"><b>D</b><span>单元测试</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 集成测试）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="19 单选题 一家AI公司训练出的模型使用了开源代码（GPL协议）。根据GPL协议要求，该公司将模型商业化时是否需要开源全部模型代码？ A. 不需要，只开源修改过的部分 | B. 需要，包括模型权重 | C. 如果模型与开源代码动态链接则需全部开源 | D. 不需要开源 C">
+      <div class="top"><span class="no">19</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">一家AI公司训练出的模型使用了开源代码（GPL协议）。根据GPL协议要求，该公司将模型商业化时是否需要开源全部模型代码？</div>
+      <ol class="options"><li class="option"><b>A</b><span>不需要，只开源修改过的部分</span></li><li class="option"><b>B</b><span>需要，包括模型权重</span></li><li class="option correct"><b>C</b><span>如果模型与开源代码动态链接则需全部开源</span></li><li class="option"><b>D</b><span>不需要开源</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 如果模型与开源代码动态链接则需全部开源）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="20 单选题 电商平台分析用户从“浏览商品页”到“加入购物车”再到“支付成功”的转化率，发现“加入购物车”到“支付成功”环节流失严重。这种分析方法称为？ A. 交叉分析 | B. 聚类分析 | C. 对比分析 | D. 漏斗分析 D">
+      <div class="top"><span class="no">20</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">电商平台分析用户从“浏览商品页”到“加入购物车”再到“支付成功”的转化率，发现“加入购物车”到“支付成功”环节流失严重。这种分析方法称为？</div>
+      <ol class="options"><li class="option"><b>A</b><span>交叉分析</span></li><li class="option"><b>B</b><span>聚类分析</span></li><li class="option"><b>C</b><span>对比分析</span></li><li class="option correct"><b>D</b><span>漏斗分析</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 漏斗分析）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="21 单选题 某标注项目采用“培训-考核-上岗”的流程，所有标注员必须先通过测试才能参与正式标注。这种管理方式旨在？ A. 降低标注成本 | B. 加快项目进度 | C. 增加标注数量 | D. 保证标注人员能力达标 D">
+      <div class="top"><span class="no">21</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">某标注项目采用“培训-考核-上岗”的流程，所有标注员必须先通过测试才能参与正式标注。这种管理方式旨在？</div>
+      <ol class="options"><li class="option"><b>A</b><span>降低标注成本</span></li><li class="option"><b>B</b><span>加快项目进度</span></li><li class="option"><b>C</b><span>增加标注数量</span></li><li class="option correct"><b>D</b><span>保证标注人员能力达标</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 保证标注人员能力达标）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="22 单选题 人工智能训练师在部署模型前，使用K折交叉验证评估模型稳定性。这属于哪一原则的实践？ A. 高质量的模型优化 | B. 终端用户反馈 | C. 数据采集 | D. 模型部署和监控 A">
+      <div class="top"><span class="no">22</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">人工智能训练师在部署模型前，使用K折交叉验证评估模型稳定性。这属于哪一原则的实践？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>高质量的模型优化</span></li><li class="option"><b>B</b><span>终端用户反馈</span></li><li class="option"><b>C</b><span>数据采集</span></li><li class="option"><b>D</b><span>模型部署和监控</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 高质量的模型优化）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="23 单选题 视频监控安防系统引入边缘计算节点，将人脸识别任务下沉至摄像头端，减少云端传输延迟。这主要优化了哪项指标？ A. 响应时间 | B. 存储容量 | C. 识别准确率 | D. 功能丰富度 A">
+      <div class="top"><span class="no">23</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">视频监控安防系统引入边缘计算节点，将人脸识别任务下沉至摄像头端，减少云端传输延迟。这主要优化了哪项指标？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>响应时间</span></li><li class="option"><b>B</b><span>存储容量</span></li><li class="option"><b>C</b><span>识别准确率</span></li><li class="option"><b>D</b><span>功能丰富度</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 响应时间）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="24 单选题 在数据标注过程中，你需要频繁切换多个窗口（标注工具、参考文档、聊天软件），以下哪个快捷键可以快速在打开的窗口中循环切换？ A. Alt+Tab | B. Win+Tab | C. Ctrl+Tab | D. Alt+Esc A">
+      <div class="top"><span class="no">24</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">在数据标注过程中，你需要频繁切换多个窗口（标注工具、参考文档、聊天软件），以下哪个快捷键可以快速在打开的窗口中循环切换？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>Alt+Tab</span></li><li class="option"><b>B</b><span>Win+Tab</span></li><li class="option"><b>C</b><span>Ctrl+Tab</span></li><li class="option"><b>D</b><span>Alt+Esc</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. Alt+Tab）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="25 单选题 某数据标注外包公司未采取任何防病毒措施，导致标注系统被勒索病毒攻击，所有标注数据丢失。根据《网络安全法》，该公司可能面临什么处罚？ A. 警告 | B. 罚款 | C. 暂停业务 | D. 以上都有可能 D">
+      <div class="top"><span class="no">25</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">某数据标注外包公司未采取任何防病毒措施，导致标注系统被勒索病毒攻击，所有标注数据丢失。根据《网络安全法》，该公司可能面临什么处罚？</div>
+      <ol class="options"><li class="option"><b>A</b><span>警告</span></li><li class="option"><b>B</b><span>罚款</span></li><li class="option"><b>C</b><span>暂停业务</span></li><li class="option correct"><b>D</b><span>以上都有可能</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 以上都有可能）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="26 单选题 尼尔森十大交互原则中，“系统状态可见性”要求系统在合理时间内给予适当反馈。以下哪项设计违反了该原则？ A. 点击提交按钮后页面无变化，5秒后弹出“成功”提示 | B. 搜索时出现“正在加载”动画 | C. 操作后静默处理，无任何视觉或听觉反馈 | D. 上传文件时显示进度条 C">
+      <div class="top"><span class="no">26</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">尼尔森十大交互原则中，“系统状态可见性”要求系统在合理时间内给予适当反馈。以下哪项设计违反了该原则？</div>
+      <ol class="options"><li class="option"><b>A</b><span>点击提交按钮后页面无变化，5秒后弹出“成功”提示</span></li><li class="option"><b>B</b><span>搜索时出现“正在加载”动画</span></li><li class="option correct"><b>C</b><span>操作后静默处理，无任何视觉或听觉反馈</span></li><li class="option"><b>D</b><span>上传文件时显示进度条</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 操作后静默处理，无任何视觉或听觉反馈）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="27 单选题 在比较两个推荐模型时，模型A的AUC值为0.85，模型B的AUC值为0.78。这说明？ A. 模型A的准确率一定比模型B高 | B. 模型A的召回率一定比模型B高 | C. 模型A将正样本排在负样本前面的能力更强 | D. 模型A训练速度更快 C">
+      <div class="top"><span class="no">27</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">在比较两个推荐模型时，模型A的AUC值为0.85，模型B的AUC值为0.78。这说明？</div>
+      <ol class="options"><li class="option"><b>A</b><span>模型A的准确率一定比模型B高</span></li><li class="option"><b>B</b><span>模型A的召回率一定比模型B高</span></li><li class="option correct"><b>C</b><span>模型A将正样本排在负样本前面的能力更强</span></li><li class="option"><b>D</b><span>模型A训练速度更快</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 模型A将正样本排在负样本前面的能力更强）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="B" data-search="28 单选题 分析测试结果时，发现一个图像识别模型在“夜晚”和“雨天”场景下的识别准确率比“白天晴天”场景低30%。这种现象称为？ A. 欠拟合 | B. 性能滑坡（Performance Slicing） | C. 梯度消失 | D. 过拟合 B">
+      <div class="top"><span class="no">28</span><span class="type">单选题</span><span class="answer">答案 B</span></div>
+      <div class="question">分析测试结果时，发现一个图像识别模型在“夜晚”和“雨天”场景下的识别准确率比“白天晴天”场景低30%。这种现象称为？</div>
+      <ol class="options"><li class="option"><b>A</b><span>欠拟合</span></li><li class="option correct"><b>B</b><span>性能滑坡（Performance Slicing）</span></li><li class="option"><b>C</b><span>梯度消失</span></li><li class="option"><b>D</b><span>过拟合</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 性能滑坡（Performance Slicing））</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="29 单选题 某教育智能体需要记录学生每道题的答题情况，以便后续生成学习报告。应采用哪种存储方式最合适？ A. 数据库操作节点 | B. 循环节点 | C. 代码插入节点 | D. 变量聚合节点 A">
+      <div class="top"><span class="no">29</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">某教育智能体需要记录学生每道题的答题情况，以便后续生成学习报告。应采用哪种存储方式最合适？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>数据库操作节点</span></li><li class="option"><b>B</b><span>循环节点</span></li><li class="option"><b>C</b><span>代码插入节点</span></li><li class="option"><b>D</b><span>变量聚合节点</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 数据库操作节点）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="30 单选题 某团队使用“扣子罗盘”工具分析其图像分类模型，发现模型在“黄昏”场景下的召回率远低于整体水平。该工具最可能通过什么方式帮助定位问题？ A. 按“场景”维度对数据进行切片并可视化性能差异 | B. 生成对抗样本进行鲁棒性测试 | C. 自动调整模型超参数 | D. 自动标注更多黄昏图像 A">
+      <div class="top"><span class="no">30</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">某团队使用“扣子罗盘”工具分析其图像分类模型，发现模型在“黄昏”场景下的召回率远低于整体水平。该工具最可能通过什么方式帮助定位问题？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>按“场景”维度对数据进行切片并可视化性能差异</span></li><li class="option"><b>B</b><span>生成对抗样本进行鲁棒性测试</span></li><li class="option"><b>C</b><span>自动调整模型超参数</span></li><li class="option"><b>D</b><span>自动标注更多黄昏图像</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 按“场景”维度对数据进行切片并可视化性能差异）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="31 单选题 需要解释某个样本被预测为流失用户的原因，了解每个特征对该预测结果的影响大小。应使用哪种解释性方法？ A. 部分依赖图 | B. 特征重要性 | C. SHAP | D. LIME D">
+      <div class="top"><span class="no">31</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">需要解释某个样本被预测为流失用户的原因，了解每个特征对该预测结果的影响大小。应使用哪种解释性方法？</div>
+      <ol class="options"><li class="option"><b>A</b><span>部分依赖图</span></li><li class="option"><b>B</b><span>特征重要性</span></li><li class="option"><b>C</b><span>SHAP</span></li><li class="option correct"><b>D</b><span>LIME</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. LIME）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="32 单选题 在数据标准化中，使用Max-Min归一化将数据映射到[0，1]区间，其计算公式为（x - min）/ (max - min)。该方法的缺点是？ A. 无法处理负数 | B. 计算复杂 | C. 无法保持数据分布 | D. 受极端值影响大 D">
+      <div class="top"><span class="no">32</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">在数据标准化中，使用Max-Min归一化将数据映射到[0，1]区间，其计算公式为（x - min）/ (max - min)。该方法的缺点是？</div>
+      <ol class="options"><li class="option"><b>A</b><span>无法处理负数</span></li><li class="option"><b>B</b><span>计算复杂</span></li><li class="option"><b>C</b><span>无法保持数据分布</span></li><li class="option correct"><b>D</b><span>受极端值影响大</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 受极端值影响大）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="33 单选题 项目经理需要为团队选择一个文本标注工具，要求能够进行文本分类、序列标注（命名实体识别）和关系抽取，并且支持主动学习（active learning）以优化标注效率。以下哪种工具最合适？ A. Doccano | B. BRAT | C. Prodigy | D. LabelStudio C">
+      <div class="top"><span class="no">33</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">项目经理需要为团队选择一个文本标注工具，要求能够进行文本分类、序列标注（命名实体识别）和关系抽取，并且支持主动学习（active learning）以优化标注效率。以下哪种工具最合适？</div>
+      <ol class="options"><li class="option"><b>A</b><span>Doccano</span></li><li class="option"><b>B</b><span>BRAT</span></li><li class="option correct"><b>C</b><span>Prodigy</span></li><li class="option"><b>D</b><span>LabelStudio</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. Prodigy）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="B" data-search="34 单选题 在数据集成过程中，遇到“同一客户在A系统性别为‘男’，在B系统性别为‘0’”这种冲突，首先应该如何处理？ A. 随机选择一个值填入 | B. 根据数据源的权威性或业务规则来确定一个标准映射关系 | C. 以A系统的值为准 | D. 将两个值都保留 B">
+      <div class="top"><span class="no">34</span><span class="type">单选题</span><span class="answer">答案 B</span></div>
+      <div class="question">在数据集成过程中，遇到“同一客户在A系统性别为‘男’，在B系统性别为‘0’”这种冲突，首先应该如何处理？</div>
+      <ol class="options"><li class="option"><b>A</b><span>随机选择一个值填入</span></li><li class="option correct"><b>B</b><span>根据数据源的权威性或业务规则来确定一个标准映射关系</span></li><li class="option"><b>C</b><span>以A系统的值为准</span></li><li class="option"><b>D</b><span>将两个值都保留</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 根据数据源的权威性或业务规则来确定一个标准映射关系）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="35 单选题 在人工智能训练师培训中，实施“项目制学习”的核心价值在于？ A. 降低培训成本 | B. 缩短培训周期 | C. 减少对指导教师的依赖 | D. 让学员在解决真实问题的过程中整合所学技能 D">
+      <div class="top"><span class="no">35</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">在人工智能训练师培训中，实施“项目制学习”的核心价值在于？</div>
+      <ol class="options"><li class="option"><b>A</b><span>降低培训成本</span></li><li class="option"><b>B</b><span>缩短培训周期</span></li><li class="option"><b>C</b><span>减少对指导教师的依赖</span></li><li class="option correct"><b>D</b><span>让学员在解决真实问题的过程中整合所学技能</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 让学员在解决真实问题的过程中整合所学技能）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="36 单选题 某智能体需要支持用户上传Excel文件并自动解析内容，然后逐行处理。以下流程设计中最优的是？ A. 数据库操作节点 - &gt; 循环节点 | B. 插件调用节点 - &gt; 选择器节点 | C. 异步任务节点 - &gt; 变量聚合节点 | D. 文件上传节点 - &gt; 代码插入节点（解析Excel） - &gt; 循环节点（逐行处理） D">
+      <div class="top"><span class="no">36</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">某智能体需要支持用户上传Excel文件并自动解析内容，然后逐行处理。以下流程设计中最优的是？</div>
+      <ol class="options"><li class="option"><b>A</b><span>数据库操作节点 - &gt; 循环节点</span></li><li class="option"><b>B</b><span>插件调用节点 - &gt; 选择器节点</span></li><li class="option"><b>C</b><span>异步任务节点 - &gt; 变量聚合节点</span></li><li class="option correct"><b>D</b><span>文件上传节点 - &gt; 代码插入节点（解析Excel） - &gt; 循环节点（逐行处理）</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 文件上传节点 - &gt; 代码插入节点（解析Excel） - &gt; 循环节点（逐行处理））</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="37 单选题 在强化学习中，智能体需要在“利用已知高奖励动作”与“探索未知可能更高奖励动作”之间权衡，这被称为？ A. 价值函数估计 | B. 策略梯度问题 | C. 马尔可夫决策过程 | D. 探索与利用困境 D">
+      <div class="top"><span class="no">37</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">在强化学习中，智能体需要在“利用已知高奖励动作”与“探索未知可能更高奖励动作”之间权衡，这被称为？</div>
+      <ol class="options"><li class="option"><b>A</b><span>价值函数估计</span></li><li class="option"><b>B</b><span>策略梯度问题</span></li><li class="option"><b>C</b><span>马尔可夫决策过程</span></li><li class="option correct"><b>D</b><span>探索与利用困境</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 探索与利用困境）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="38 单选题 文本实体识别标注的质检中，发现“苹果”一词在“苹果公司”和“红苹果”中被标注为相同实体类型。这属于哪类错误？ A. 实体重叠 | B. 实体缺失 | C. 实体类型错误 | D. 实体边界错误 C">
+      <div class="top"><span class="no">38</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">文本实体识别标注的质检中，发现“苹果”一词在“苹果公司”和“红苹果”中被标注为相同实体类型。这属于哪类错误？</div>
+      <ol class="options"><li class="option"><b>A</b><span>实体重叠</span></li><li class="option"><b>B</b><span>实体缺失</span></li><li class="option correct"><b>C</b><span>实体类型错误</span></li><li class="option"><b>D</b><span>实体边界错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 实体类型错误）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="B" data-search="39 单选题 为了分析两个不同结构的图像分类模型（ResNet50和MobileNetV2）在误判样本上的差异，团队使用了扣子罗盘工具，它可以直观地对比两个模型在哪些类别、哪些场景下的表现。这类工具主要属于？ A. 性能测试工具 | B. 可视化分析测试工具 | C. 单元测试框架 | D. 接口测试工具 B">
+      <div class="top"><span class="no">39</span><span class="type">单选题</span><span class="answer">答案 B</span></div>
+      <div class="question">为了分析两个不同结构的图像分类模型（ResNet50和MobileNetV2）在误判样本上的差异，团队使用了扣子罗盘工具，它可以直观地对比两个模型在哪些类别、哪些场景下的表现。这类工具主要属于？</div>
+      <ol class="options"><li class="option"><b>A</b><span>性能测试工具</span></li><li class="option correct"><b>B</b><span>可视化分析测试工具</span></li><li class="option"><b>C</b><span>单元测试框架</span></li><li class="option"><b>D</b><span>接口测试工具</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 可视化分析测试工具）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="B" data-search="40 单选题 在处理用户上传的多张图片时，需要为每张图片依次执行压缩、水印添加和格式转换。以下哪种流程设计能确保有序处理且不阻塞后续请求？ A. 使用并行节点同时处理所有图片 | B. 使用循环节点配合异步任务 | C. 使用变量聚合节点统一处理 | D. 使用选择器节点逐一判断格式 B">
+      <div class="top"><span class="no">40</span><span class="type">单选题</span><span class="answer">答案 B</span></div>
+      <div class="question">在处理用户上传的多张图片时，需要为每张图片依次执行压缩、水印添加和格式转换。以下哪种流程设计能确保有序处理且不阻塞后续请求？</div>
+      <ol class="options"><li class="option"><b>A</b><span>使用并行节点同时处理所有图片</span></li><li class="option correct"><b>B</b><span>使用循环节点配合异步任务</span></li><li class="option"><b>C</b><span>使用变量聚合节点统一处理</span></li><li class="option"><b>D</b><span>使用选择器节点逐一判断格式</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 使用循环节点配合异步任务）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="41 单选题 在工作流设计中，以下哪项属于“并行处理”的应用场景？ A. 需要依次执行的步骤 | B. 存在依赖关系的任务 | C. 同时调用多个无依赖的 API | D. 用户输入验证 C">
+      <div class="top"><span class="no">41</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">在工作流设计中，以下哪项属于“并行处理”的应用场景？</div>
+      <ol class="options"><li class="option"><b>A</b><span>需要依次执行的步骤</span></li><li class="option"><b>B</b><span>存在依赖关系的任务</span></li><li class="option correct"><b>C</b><span>同时调用多个无依赖的 API</span></li><li class="option"><b>D</b><span>用户输入验证</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 同时调用多个无依赖的 API）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="42 单选题 在智能体对话中，需要根据用户历史互动数据动态调整回复风格，以下哪种记忆库实现最合适？ A. 向量检索记忆 | B. 对话缓冲记忆 | C. 长期记忆结合用户画像 | D. 短期记忆（滑动窗口） C">
+      <div class="top"><span class="no">42</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">在智能体对话中，需要根据用户历史互动数据动态调整回复风格，以下哪种记忆库实现最合适？</div>
+      <ol class="options"><li class="option"><b>A</b><span>向量检索记忆</span></li><li class="option"><b>B</b><span>对话缓冲记忆</span></li><li class="option correct"><b>C</b><span>长期记忆结合用户画像</span></li><li class="option"><b>D</b><span>短期记忆（滑动窗口）</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 长期记忆结合用户画像）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="43 单选题 一家公司使用扣子平台标注了1000条文本用于情感分类。训练模型后发现效果不佳，怀疑标注数据存在不一致问题。以下哪种平台功能可以最有效地辅助排查？ A. 任务进度图表 | B. 标签推荐功能 | C. 标注一致性分析报告（如标注员间Kappa值） | D. 数据导出功能 C">
+      <div class="top"><span class="no">43</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">一家公司使用扣子平台标注了1000条文本用于情感分类。训练模型后发现效果不佳，怀疑标注数据存在不一致问题。以下哪种平台功能可以最有效地辅助排查？</div>
+      <ol class="options"><li class="option"><b>A</b><span>任务进度图表</span></li><li class="option"><b>B</b><span>标签推荐功能</span></li><li class="option correct"><b>C</b><span>标注一致性分析报告（如标注员间Kappa值）</span></li><li class="option"><b>D</b><span>数据导出功能</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 标注一致性分析报告（如标注员间Kappa值））</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="44 单选题 你在PPT中插入了一个来自标注平台的截图，但图片分辨率太低导致模糊。以下哪种方法能获得最佳显示效果？ A. 使用PPT的“图片校正”中的锐化功能 | B. 将图片转换为SmartArt | C. 重新获取原始高分辨率图片并插入 | D. 直接拉伸图片放大 C">
+      <div class="top"><span class="no">44</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">你在PPT中插入了一个来自标注平台的截图，但图片分辨率太低导致模糊。以下哪种方法能获得最佳显示效果？</div>
+      <ol class="options"><li class="option"><b>A</b><span>使用PPT的“图片校正”中的锐化功能</span></li><li class="option"><b>B</b><span>将图片转换为SmartArt</span></li><li class="option correct"><b>C</b><span>重新获取原始高分辨率图片并插入</span></li><li class="option"><b>D</b><span>直接拉伸图片放大</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 重新获取原始高分辨率图片并插入）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="45 单选题 你正在进行数据质量评价，发现某数据集中的“地址”信息详细程度不一，有的精确到门牌号，有的只到区县。这反映了该数据集存在什么质量问题？ A. 数据时效性差 | B. 数据完整性差 | C. 数据一致性差 | D. 数据准确性差 C">
+      <div class="top"><span class="no">45</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">你正在进行数据质量评价，发现某数据集中的“地址”信息详细程度不一，有的精确到门牌号，有的只到区县。这反映了该数据集存在什么质量问题？</div>
+      <ol class="options"><li class="option"><b>A</b><span>数据时效性差</span></li><li class="option"><b>B</b><span>数据完整性差</span></li><li class="option correct"><b>C</b><span>数据一致性差</span></li><li class="option"><b>D</b><span>数据准确性差</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 数据一致性差）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="B" data-search="46 单选题 门店补货流程优化中使用七步分析法。在“评估”阶段，团队对比了优化前后缺货率与周转率数据。这属于： A. 问题定义 | B. 效果评估 | C. 标准化 | D. 原因分析 B">
+      <div class="top"><span class="no">46</span><span class="type">单选题</span><span class="answer">答案 B</span></div>
+      <div class="question">门店补货流程优化中使用七步分析法。在“评估”阶段，团队对比了优化前后缺货率与周转率数据。这属于：</div>
+      <ol class="options"><li class="option"><b>A</b><span>问题定义</span></li><li class="option correct"><b>B</b><span>效果评估</span></li><li class="option"><b>C</b><span>标准化</span></li><li class="option"><b>D</b><span>原因分析</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 效果评估）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="47 单选题 语音数据标注中，质检员发现某段音频的转写文本与实际发音存在多处不一致，且部分停顿未正确标记。这主要违反了哪类质量要求？ A. 文本准确性及韵律标记 | B. 时间戳准确性 | C. 标注格式规范 | D. 文本与语音一致性 A">
+      <div class="top"><span class="no">47</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">语音数据标注中，质检员发现某段音频的转写文本与实际发音存在多处不一致，且部分停顿未正确标记。这主要违反了哪类质量要求？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>文本准确性及韵律标记</span></li><li class="option"><b>B</b><span>时间戳准确性</span></li><li class="option"><b>C</b><span>标注格式规范</span></li><li class="option"><b>D</b><span>文本与语音一致性</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 文本准确性及韵律标记）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="B" data-search="48 单选题 为某物流公司设计“智能分拣机器人”的视觉识别方案。公司预计未来一年内会新增20种不同尺寸的纸箱。为了在不完全重训模型的情况下适应新纸箱，最合适的模型更新策略是？ A. 人工手动为新纸箱编写识别规则 | B. 采用增量学习或迁移学习 | C. 完全冻结模型不再更新 | D. 定期全量重训（每月一次） B">
+      <div class="top"><span class="no">48</span><span class="type">单选题</span><span class="answer">答案 B</span></div>
+      <div class="question">为某物流公司设计“智能分拣机器人”的视觉识别方案。公司预计未来一年内会新增20种不同尺寸的纸箱。为了在不完全重训模型的情况下适应新纸箱，最合适的模型更新策略是？</div>
+      <ol class="options"><li class="option"><b>A</b><span>人工手动为新纸箱编写识别规则</span></li><li class="option correct"><b>B</b><span>采用增量学习或迁移学习</span></li><li class="option"><b>C</b><span>完全冻结模型不再更新</span></li><li class="option"><b>D</b><span>定期全量重训（每月一次）</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 采用增量学习或迁移学习）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="B" data-search="49 单选题 某工作流中包含多个无依赖关系的 API 调用，以下哪项设计最合理？ A. 顺序调用 | B. 并行调用 | C. 循环调用 | D. 条件调用 B">
+      <div class="top"><span class="no">49</span><span class="type">单选题</span><span class="answer">答案 B</span></div>
+      <div class="question">某工作流中包含多个无依赖关系的 API 调用，以下哪项设计最合理？</div>
+      <ol class="options"><li class="option"><b>A</b><span>顺序调用</span></li><li class="option correct"><b>B</b><span>并行调用</span></li><li class="option"><b>C</b><span>循环调用</span></li><li class="option"><b>D</b><span>条件调用</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 并行调用）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="50 单选题 在数据采集的工具选择上，对于需要从多个异构网站实时抓取商品价格和评论数据的任务，以下哪个工具最为合适？ A. Tableau | B. 后羿采集器 | C. Python Scrapy | D. Microsoft Excel C">
+      <div class="top"><span class="no">50</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">在数据采集的工具选择上，对于需要从多个异构网站实时抓取商品价格和评论数据的任务，以下哪个工具最为合适？</div>
+      <ol class="options"><li class="option"><b>A</b><span>Tableau</span></li><li class="option"><b>B</b><span>后羿采集器</span></li><li class="option correct"><b>C</b><span>Python Scrapy</span></li><li class="option"><b>D</b><span>Microsoft Excel</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. Python Scrapy）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="51 单选题 以下哪项是A/B测试在人机交互设计中的典型应用？ A. 测试不同唤醒词的识别准确率 | B. 对比两种语音合成引擎的音质 | C. 比较两种对话引导文案的用户点击率 | D. 验证语音助手的唤醒延迟 C">
+      <div class="top"><span class="no">51</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">以下哪项是A/B测试在人机交互设计中的典型应用？</div>
+      <ol class="options"><li class="option"><b>A</b><span>测试不同唤醒词的识别准确率</span></li><li class="option"><b>B</b><span>对比两种语音合成引擎的音质</span></li><li class="option correct"><b>C</b><span>比较两种对话引导文案的用户点击率</span></li><li class="option"><b>D</b><span>验证语音助手的唤醒延迟</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 比较两种对话引导文案的用户点击率）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="52 单选题 某智能体需要调用多个API获取用户信息、订单列表、商品详情，并将结果组合后返回。为提高响应速度，应使用哪种工作流模式？ A. 选择器节点选择调用 | B. 循环节点逐个调用 | C. 顺序节点依次调用 | D. 并行节点同时调用 D">
+      <div class="top"><span class="no">52</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">某智能体需要调用多个API获取用户信息、订单列表、商品详情，并将结果组合后返回。为提高响应速度，应使用哪种工作流模式？</div>
+      <ol class="options"><li class="option"><b>A</b><span>选择器节点选择调用</span></li><li class="option"><b>B</b><span>循环节点逐个调用</span></li><li class="option"><b>C</b><span>顺序节点依次调用</span></li><li class="option correct"><b>D</b><span>并行节点同时调用</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 并行节点同时调用）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="53 单选题 一款语音标注工具在导入数据时要求提供JSON文件，每个元素包含“audio_path”“transcript”“start_time”“end_time”字段。这种设计主要为了支持哪种标注任务？ A. 音频情感分类 | B. 音频降噪处理 | C. 音频格式转换 | D. 音频与文本对齐及时间戳标注 D">
+      <div class="top"><span class="no">53</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">一款语音标注工具在导入数据时要求提供JSON文件，每个元素包含“audio_path”“transcript”“start_time”“end_time”字段。这种设计主要为了支持哪种标注任务？</div>
+      <ol class="options"><li class="option"><b>A</b><span>音频情感分类</span></li><li class="option"><b>B</b><span>音频降噪处理</span></li><li class="option"><b>C</b><span>音频格式转换</span></li><li class="option correct"><b>D</b><span>音频与文本对齐及时间戳标注</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 音频与文本对齐及时间戳标注）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="54 单选题 在业务模块分析中，“需求收集”的主要方式是？ A. 模型训练 | B. 代码审查 | C. 压力测试 | D. 用户访谈 D">
+      <div class="top"><span class="no">54</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">在业务模块分析中，“需求收集”的主要方式是？</div>
+      <ol class="options"><li class="option"><b>A</b><span>模型训练</span></li><li class="option"><b>B</b><span>代码审查</span></li><li class="option"><b>C</b><span>压力测试</span></li><li class="option correct"><b>D</b><span>用户访谈</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 用户访谈）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="B" data-search="55 单选题 在测试智能体时，需要验证当用户输入“我要退货”时，系统是否正确识别意图并调用退货插件。这属于哪类测试？ A. 单元测试 | B. 集成测试 | C. 安全测试 | D. 压力测试 B">
+      <div class="top"><span class="no">55</span><span class="type">单选题</span><span class="answer">答案 B</span></div>
+      <div class="question">在测试智能体时，需要验证当用户输入“我要退货”时，系统是否正确识别意图并调用退货插件。这属于哪类测试？</div>
+      <ol class="options"><li class="option"><b>A</b><span>单元测试</span></li><li class="option correct"><b>B</b><span>集成测试</span></li><li class="option"><b>C</b><span>安全测试</span></li><li class="option"><b>D</b><span>压力测试</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 集成测试）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="56 单选题 在进行工作流设计时，用于处理不同条件下执行不同路径的组件是？ A. 循环节点 | B. 开始节点 | C. 并行节点 | D. 条件分支节点 D">
+      <div class="top"><span class="no">56</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">在进行工作流设计时，用于处理不同条件下执行不同路径的组件是？</div>
+      <ol class="options"><li class="option"><b>A</b><span>循环节点</span></li><li class="option"><b>B</b><span>开始节点</span></li><li class="option"><b>C</b><span>并行节点</span></li><li class="option correct"><b>D</b><span>条件分支节点</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 条件分支节点）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="A" data-search="57 单选题 在参与某金融机构的客户数据标注项目时，你发现部分数据涉及用户的银行卡号。根据“遵章守法”原则，你应该如何处理？ A. 立即停止标注，并按照项目安全规范进行脱敏处理或上报 | B. 将这些数据视为普通文本继续标注工作 | C. 将这些数据复制到个人电脑进行离线标注 | D. 为方便后续模型训练，继续在平台上标注 A">
+      <div class="top"><span class="no">57</span><span class="type">单选题</span><span class="answer">答案 A</span></div>
+      <div class="question">在参与某金融机构的客户数据标注项目时，你发现部分数据涉及用户的银行卡号。根据“遵章守法”原则，你应该如何处理？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>立即停止标注，并按照项目安全规范进行脱敏处理或上报</span></li><li class="option"><b>B</b><span>将这些数据视为普通文本继续标注工作</span></li><li class="option"><b>C</b><span>将这些数据复制到个人电脑进行离线标注</span></li><li class="option"><b>D</b><span>为方便后续模型训练，继续在平台上标注</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 立即停止标注，并按照项目安全规范进行脱敏处理或上报）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="C" data-search="58 单选题 标注医疗影像数据时，为确保罕见病灶类型也能有足够样本，应优先采用哪种抽样方法？ A. 简单随机抽样 | B. 系统抽样 | C. 分层抽样 | D. 聚类抽样 C">
+      <div class="top"><span class="no">58</span><span class="type">单选题</span><span class="answer">答案 C</span></div>
+      <div class="question">标注医疗影像数据时，为确保罕见病灶类型也能有足够样本，应优先采用哪种抽样方法？</div>
+      <ol class="options"><li class="option"><b>A</b><span>简单随机抽样</span></li><li class="option"><b>B</b><span>系统抽样</span></li><li class="option correct"><b>C</b><span>分层抽样</span></li><li class="option"><b>D</b><span>聚类抽样</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>C（C. 分层抽样）</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="D" data-search="59 单选题 某公司开展图像标注项目，质检员发现不同标注员对物体边缘贴合度的判断差异较大。若要量化这种标注质量的波动程度，最适合采用哪种统计方法？ A. 聚类分析 | B. 假设检验 | C. 箱线图结合IQR | D. 方差分析（ANOVA） D">
+      <div class="top"><span class="no">59</span><span class="type">单选题</span><span class="answer">答案 D</span></div>
+      <div class="question">某公司开展图像标注项目，质检员发现不同标注员对物体边缘贴合度的判断差异较大。若要量化这种标注质量的波动程度，最适合采用哪种统计方法？</div>
+      <ol class="options"><li class="option"><b>A</b><span>聚类分析</span></li><li class="option"><b>B</b><span>假设检验</span></li><li class="option"><b>C</b><span>箱线图结合IQR</span></li><li class="option correct"><b>D</b><span>方差分析（ANOVA）</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>D（D. 方差分析（ANOVA））</div>
+    </article>
+    <article class="card" data-type="单选题" data-answer="B" data-search="60 单选题 在使用Python的Pandas库进行数据清洗时，你发现一个DataFrame中存在多行完全相同的记录。你应该使用以下哪个函数来直接处理这个问题？ A. df.fillna() | B. df.drop_duplicates() | C. df.replace() | D. df.dropna() B">
+      <div class="top"><span class="no">60</span><span class="type">单选题</span><span class="answer">答案 B</span></div>
+      <div class="question">在使用Python的Pandas库进行数据清洗时，你发现一个DataFrame中存在多行完全相同的记录。你应该使用以下哪个函数来直接处理这个问题？</div>
+      <ol class="options"><li class="option"><b>A</b><span>df.fillna()</span></li><li class="option correct"><b>B</b><span>df.drop_duplicates()</span></li><li class="option"><b>C</b><span>df.replace()</span></li><li class="option"><b>D</b><span>df.dropna()</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. df.drop_duplicates()）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ABE" data-search="61 多选题 在智能体开发中，记忆库的作用包括哪些？ A. 维护用户画像 | B. 实现长期记忆 | C. 处理图像数据 | D. 执行并行任务 | E. 存储对话历史 ABE">
+      <div class="top"><span class="no">61</span><span class="type">多选题</span><span class="answer">答案 ABE</span></div>
+      <div class="question">在智能体开发中，记忆库的作用包括哪些？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>维护用户画像</span></li><li class="option correct"><b>B</b><span>实现长期记忆</span></li><li class="option"><b>C</b><span>处理图像数据</span></li><li class="option"><b>D</b><span>执行并行任务</span></li><li class="option correct"><b>E</b><span>存储对话历史</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ABE（A. 维护用户画像；B. 实现长期记忆；E. 存储对话历史）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ABCD" data-search="62 多选题 在模型测试过程中，发现以下哪些情况通常被认为是“数据泄露”问题？ A. 训练数据中包含了测试数据的副本 | B. 在特征工程中使用了与目标变量高度相关但现实中无法获取的“上帝特征” | C. 使用未来的信息来预测当前（如用明天的股价预测今天的） | D. 在划分数据集之前对整个数据集进行了标准化/归一化 | E. 训练集和测试集使用同一数据源 ABCD">
+      <div class="top"><span class="no">62</span><span class="type">多选题</span><span class="answer">答案 ABCD</span></div>
+      <div class="question">在模型测试过程中，发现以下哪些情况通常被认为是“数据泄露”问题？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>训练数据中包含了测试数据的副本</span></li><li class="option correct"><b>B</b><span>在特征工程中使用了与目标变量高度相关但现实中无法获取的“上帝特征”</span></li><li class="option correct"><b>C</b><span>使用未来的信息来预测当前（如用明天的股价预测今天的）</span></li><li class="option correct"><b>D</b><span>在划分数据集之前对整个数据集进行了标准化/归一化</span></li><li class="option"><b>E</b><span>训练集和测试集使用同一数据源</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ABCD（A. 训练数据中包含了测试数据的副本；B. 在特征工程中使用了与目标变量高度相关但现实中无法获取的“上帝特征”；C. 使用未来的信息来预测当前（如用明天的股价预测今天的）；D. 在划分数据集之前对整个数据集进行了标准化/归一化）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ACE" data-search="63 多选题 在Word中，以下哪些功能可以用于长文档的导航和结构化管理？ A. 目录 | B. 分页符 | C. 导航窗格 | D. 书签 | E. 标题样式 ACE">
+      <div class="top"><span class="no">63</span><span class="type">多选题</span><span class="answer">答案 ACE</span></div>
+      <div class="question">在Word中，以下哪些功能可以用于长文档的导航和结构化管理？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>目录</span></li><li class="option"><b>B</b><span>分页符</span></li><li class="option correct"><b>C</b><span>导航窗格</span></li><li class="option"><b>D</b><span>书签</span></li><li class="option correct"><b>E</b><span>标题样式</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ACE（A. 目录；C. 导航窗格；E. 标题样式）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="AD" data-search="64 多选题 竞赛团队使用随机森林和XGBoost，关于Bagging和Boosting的区别，正确的有？ A. Bagging并行训练 | B. Boosting关注降低方差 | C. Bagging关注降低偏差 | D. Boosting串行训练 | E. Bagging基学习器可并行 AD">
+      <div class="top"><span class="no">64</span><span class="type">多选题</span><span class="answer">答案 AD</span></div>
+      <div class="question">竞赛团队使用随机森林和XGBoost，关于Bagging和Boosting的区别，正确的有？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>Bagging并行训练</span></li><li class="option"><b>B</b><span>Boosting关注降低方差</span></li><li class="option"><b>C</b><span>Bagging关注降低偏差</span></li><li class="option correct"><b>D</b><span>Boosting串行训练</span></li><li class="option"><b>E</b><span>Bagging基学习器可并行</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>AD（A. Bagging并行训练；D. Boosting串行训练）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="CE" data-search="65 多选题 在设计一个智能体工作流时，以下哪些节点常用于实现业务逻辑的分支与路由？ A. 代码插入节点 | B. 变量聚合节点 | C. 条件分支节点 | D. 循环节点 | E. 选择器节点 CE">
+      <div class="top"><span class="no">65</span><span class="type">多选题</span><span class="answer">答案 CE</span></div>
+      <div class="question">在设计一个智能体工作流时，以下哪些节点常用于实现业务逻辑的分支与路由？</div>
+      <ol class="options"><li class="option"><b>A</b><span>代码插入节点</span></li><li class="option"><b>B</b><span>变量聚合节点</span></li><li class="option correct"><b>C</b><span>条件分支节点</span></li><li class="option"><b>D</b><span>循环节点</span></li><li class="option correct"><b>E</b><span>选择器节点</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>CE（C. 条件分支节点；E. 选择器节点）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ACE" data-search="66 多选题 根据《劳动法》，以下哪些情形下用人单位可以单方面解除劳动合同？ A. 严重失职给单位造成重大损害 | B. 劳动者患病在医疗期内 | C. 劳动者被依法追究刑事责任 | D. 女职工在孕期、产期、哺乳期 | E. 劳动者在试用期间被证明不符合录用条件 ACE">
+      <div class="top"><span class="no">66</span><span class="type">多选题</span><span class="answer">答案 ACE</span></div>
+      <div class="question">根据《劳动法》，以下哪些情形下用人单位可以单方面解除劳动合同？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>严重失职给单位造成重大损害</span></li><li class="option"><b>B</b><span>劳动者患病在医疗期内</span></li><li class="option correct"><b>C</b><span>劳动者被依法追究刑事责任</span></li><li class="option"><b>D</b><span>女职工在孕期、产期、哺乳期</span></li><li class="option correct"><b>E</b><span>劳动者在试用期间被证明不符合录用条件</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ACE（A. 严重失职给单位造成重大损害；C. 劳动者被依法追究刑事责任；E. 劳动者在试用期间被证明不符合录用条件）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ACE" data-search="67 多选题 在Excel中，关于数据透视表的“切片器”功能，以下描述正确的有？ A. 切片器可以直观地筛选数据 | B. 切片器只能用于单个字段的筛选 | C. 切片器的样式可以自定义 | D. 切片器可以插入到图表中作为筛选控件 | E. 一个切片器可以同时控制多个数据透视表 ACE">
+      <div class="top"><span class="no">67</span><span class="type">多选题</span><span class="answer">答案 ACE</span></div>
+      <div class="question">在Excel中，关于数据透视表的“切片器”功能，以下描述正确的有？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>切片器可以直观地筛选数据</span></li><li class="option"><b>B</b><span>切片器只能用于单个字段的筛选</span></li><li class="option correct"><b>C</b><span>切片器的样式可以自定义</span></li><li class="option"><b>D</b><span>切片器可以插入到图表中作为筛选控件</span></li><li class="option correct"><b>E</b><span>一个切片器可以同时控制多个数据透视表</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ACE（A. 切片器可以直观地筛选数据；C. 切片器的样式可以自定义；E. 一个切片器可以同时控制多个数据透视表）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ACE" data-search="68 多选题 当标注规则不够明确时，为保持“严谨求是”，团队成员应该？ A. 记录下当前处理的模糊案例，并申请规则修订 | B. 无视模糊案例，只标注规则清晰的样本 | C. 参考相似项目的成熟规则，作为临时依据并报备 | D. 根据自己的理解标注，以保持进度 | E. 主动在团队内发起讨论，澄清规则 ACE">
+      <div class="top"><span class="no">68</span><span class="type">多选题</span><span class="answer">答案 ACE</span></div>
+      <div class="question">当标注规则不够明确时，为保持“严谨求是”，团队成员应该？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>记录下当前处理的模糊案例，并申请规则修订</span></li><li class="option"><b>B</b><span>无视模糊案例，只标注规则清晰的样本</span></li><li class="option correct"><b>C</b><span>参考相似项目的成熟规则，作为临时依据并报备</span></li><li class="option"><b>D</b><span>根据自己的理解标注，以保持进度</span></li><li class="option correct"><b>E</b><span>主动在团队内发起讨论，澄清规则</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ACE（A. 记录下当前处理的模糊案例，并申请规则修订；C. 参考相似项目的成熟规则，作为临时依据并报备；E. 主动在团队内发起讨论，澄清规则）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ACE" data-search="69 多选题 以下哪些属于数据标注工作中常用的计算机操作技巧？ A. 利用环境变量设置标注工具的快捷启动路径 | B. 超频CPU以加快标注模型训练速度 | C. 使用符号链接将标注数据集映射到多个位置而不占用额外空间 | D. 通过修改BIOS设置来提高显卡性能 | E. 使用正则表达式批量替换标注文件中的文本内容 ACE">
+      <div class="top"><span class="no">69</span><span class="type">多选题</span><span class="answer">答案 ACE</span></div>
+      <div class="question">以下哪些属于数据标注工作中常用的计算机操作技巧？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>利用环境变量设置标注工具的快捷启动路径</span></li><li class="option"><b>B</b><span>超频CPU以加快标注模型训练速度</span></li><li class="option correct"><b>C</b><span>使用符号链接将标注数据集映射到多个位置而不占用额外空间</span></li><li class="option"><b>D</b><span>通过修改BIOS设置来提高显卡性能</span></li><li class="option correct"><b>E</b><span>使用正则表达式批量替换标注文件中的文本内容</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ACE（A. 利用环境变量设置标注工具的快捷启动路径；C. 使用符号链接将标注数据集映射到多个位置而不占用额外空间；E. 使用正则表达式批量替换标注文件中的文本内容）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ABCE" data-search="70 多选题 以下哪些Excel函数可以用于查找匹配值？ A. VLOOKUP | B. HLOOKUP | C. INDEX+MATCH | D. SUMIF | E. LOOKUP ABCE">
+      <div class="top"><span class="no">70</span><span class="type">多选题</span><span class="answer">答案 ABCE</span></div>
+      <div class="question">以下哪些Excel函数可以用于查找匹配值？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>VLOOKUP</span></li><li class="option correct"><b>B</b><span>HLOOKUP</span></li><li class="option correct"><b>C</b><span>INDEX+MATCH</span></li><li class="option"><b>D</b><span>SUMIF</span></li><li class="option correct"><b>E</b><span>LOOKUP</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ABCE（A. VLOOKUP；B. HLOOKUP；C. INDEX+MATCH；E. LOOKUP）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ABDE" data-search="71 多选题 某AI训练师在为一个文本分类任务制定数据标注规则时，为了确保规则清晰、无歧义，规则文档中应包含哪些内容？ A. 正例与反例的典型示例 | B. 难以判断的边界情况处理指南 | C. 项目预算和排期表 | D. 详细的分类标签定义 | E. 明确的任务背景与目的 ABDE">
+      <div class="top"><span class="no">71</span><span class="type">多选题</span><span class="answer">答案 ABDE</span></div>
+      <div class="question">某AI训练师在为一个文本分类任务制定数据标注规则时，为了确保规则清晰、无歧义，规则文档中应包含哪些内容？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>正例与反例的典型示例</span></li><li class="option correct"><b>B</b><span>难以判断的边界情况处理指南</span></li><li class="option"><b>C</b><span>项目预算和排期表</span></li><li class="option correct"><b>D</b><span>详细的分类标签定义</span></li><li class="option correct"><b>E</b><span>明确的任务背景与目的</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ABDE（A. 正例与反例的典型示例；B. 难以判断的边界情况处理指南；D. 详细的分类标签定义；E. 明确的任务背景与目的）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ACE" data-search="72 多选题 在对人工智能训练师进行“数据增强技术”的指导时，为了确保指导的“可操作性”和“反馈闭环”，指导者应采取哪些措施？ A. 演示使用imgaug库对图像进行翻转、旋转的具体代码 | B. 在指导结束后不再过问训练师的实际应用情况 | C. 观察训练师生成的数据集质量，并针对出现的图像扭曲问题提供优化建议 | D. 仅讲解数据增强的理论意义 | E. 要求训练师现场操作并生成增强后的数据集 ACE">
+      <div class="top"><span class="no">72</span><span class="type">多选题</span><span class="answer">答案 ACE</span></div>
+      <div class="question">在对人工智能训练师进行“数据增强技术”的指导时，为了确保指导的“可操作性”和“反馈闭环”，指导者应采取哪些措施？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>演示使用imgaug库对图像进行翻转、旋转的具体代码</span></li><li class="option"><b>B</b><span>在指导结束后不再过问训练师的实际应用情况</span></li><li class="option correct"><b>C</b><span>观察训练师生成的数据集质量，并针对出现的图像扭曲问题提供优化建议</span></li><li class="option"><b>D</b><span>仅讲解数据增强的理论意义</span></li><li class="option correct"><b>E</b><span>要求训练师现场操作并生成增强后的数据集</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ACE（A. 演示使用imgaug库对图像进行翻转、旋转的具体代码；C. 观察训练师生成的数据集质量，并针对出现的图像扭曲问题提供优化建议；E. 要求训练师现场操作并生成增强后的数据集）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ABD" data-search="73 多选题 在搭建APP“用户增长”指标体系时，以下哪些属于遵循OSM模型下的合理拆解？ A. 目标：提升用户留存率；策略：优化推送机制；指标：次日留存率 | B. 目标：增加收入；策略：推出会员权益；指标：会员订阅率 | C. 目标：降低服务器成本；策略：减少数据库容量；指标：用户投诉量 | D. 目标：提升用户活跃度；策略：开展签到活动；指标：日活跃用户数 | E. 目标：改进UI设计；策略：更换图标颜色；指标：用户注册数 ABD">
+      <div class="top"><span class="no">73</span><span class="type">多选题</span><span class="answer">答案 ABD</span></div>
+      <div class="question">在搭建APP“用户增长”指标体系时，以下哪些属于遵循OSM模型下的合理拆解？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>目标：提升用户留存率；策略：优化推送机制；指标：次日留存率</span></li><li class="option correct"><b>B</b><span>目标：增加收入；策略：推出会员权益；指标：会员订阅率</span></li><li class="option"><b>C</b><span>目标：降低服务器成本；策略：减少数据库容量；指标：用户投诉量</span></li><li class="option correct"><b>D</b><span>目标：提升用户活跃度；策略：开展签到活动；指标：日活跃用户数</span></li><li class="option"><b>E</b><span>目标：改进UI设计；策略：更换图标颜色；指标：用户注册数</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ABD（A. 目标：提升用户留存率；策略：优化推送机制；指标：次日留存率；B. 目标：增加收入；策略：推出会员权益；指标：会员订阅率；D. 目标：提升用户活跃度；策略：开展签到活动；指标：日活跃用户数）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ADE" data-search="74 多选题 以下关于数据标注工具中“前后端交互”的描述，正确的有？ A. 前端负责用户界面渲染和交互 | B. 后端负责实时绘制标注图形 | C. 前端直接修改数据库 | D. 前端通过API向后端发送标注数据 | E. 后端负责存储标注结果和管理任务 ADE">
+      <div class="top"><span class="no">74</span><span class="type">多选题</span><span class="answer">答案 ADE</span></div>
+      <div class="question">以下关于数据标注工具中“前后端交互”的描述，正确的有？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>前端负责用户界面渲染和交互</span></li><li class="option"><b>B</b><span>后端负责实时绘制标注图形</span></li><li class="option"><b>C</b><span>前端直接修改数据库</span></li><li class="option correct"><b>D</b><span>前端通过API向后端发送标注数据</span></li><li class="option correct"><b>E</b><span>后端负责存储标注结果和管理任务</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ADE（A. 前端负责用户界面渲染和交互；D. 前端通过API向后端发送标注数据；E. 后端负责存储标注结果和管理任务）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="BE" data-search="75 多选题 一家大型呼叫中心引入智能质检系统，以下哪些指标属于服务能力指标？ A. 平均等待时长 | B. 问题解决准确率 | C. 满意度评分 | D. 日均接听量 | E. 一次性解决率 BE">
+      <div class="top"><span class="no">75</span><span class="type">多选题</span><span class="answer">答案 BE</span></div>
+      <div class="question">一家大型呼叫中心引入智能质检系统，以下哪些指标属于服务能力指标？</div>
+      <ol class="options"><li class="option"><b>A</b><span>平均等待时长</span></li><li class="option correct"><b>B</b><span>问题解决准确率</span></li><li class="option"><b>C</b><span>满意度评分</span></li><li class="option"><b>D</b><span>日均接听量</span></li><li class="option correct"><b>E</b><span>一次性解决率</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>BE（B. 问题解决准确率；E. 一次性解决率）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ABDE" data-search="76 多选题 数据标注质量检验的常用方法包括？ A. 人工抽检 | B. 基准测试 | C. 全量复检 | D. 自动化校验 | E. 交叉验证 ABDE">
+      <div class="top"><span class="no">76</span><span class="type">多选题</span><span class="answer">答案 ABDE</span></div>
+      <div class="question">数据标注质量检验的常用方法包括？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>人工抽检</span></li><li class="option correct"><b>B</b><span>基准测试</span></li><li class="option"><b>C</b><span>全量复检</span></li><li class="option correct"><b>D</b><span>自动化校验</span></li><li class="option correct"><b>E</b><span>交叉验证</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ABDE（A. 人工抽检；B. 基准测试；D. 自动化校验；E. 交叉验证）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ABCE" data-search="77 多选题 在数据集成过程中，可能遇到的挑战与问题包括？ A. 数据格式不一致 | B. 数据冗余 | C. 数据源系统的多样性 | D. 数据全都正确无误 | E. 数据命名冲突（同名异义、异名同义） ABCE">
+      <div class="top"><span class="no">77</span><span class="type">多选题</span><span class="answer">答案 ABCE</span></div>
+      <div class="question">在数据集成过程中，可能遇到的挑战与问题包括？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>数据格式不一致</span></li><li class="option correct"><b>B</b><span>数据冗余</span></li><li class="option correct"><b>C</b><span>数据源系统的多样性</span></li><li class="option"><b>D</b><span>数据全都正确无误</span></li><li class="option correct"><b>E</b><span>数据命名冲突（同名异义、异名同义）</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ABCE（A. 数据格式不一致；B. 数据冗余；C. 数据源系统的多样性；E. 数据命名冲突（同名异义、异名同义））</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ADE" data-search="78 多选题 下列哪些属于工作流中代码插入节点的典型应用？ A. 复杂数据计算 | B. 界面样式调整 | C. 数据库表结构修改 | D. 实现自定义业务逻辑 | E. 调用第三方SDK ADE">
+      <div class="top"><span class="no">78</span><span class="type">多选题</span><span class="answer">答案 ADE</span></div>
+      <div class="question">下列哪些属于工作流中代码插入节点的典型应用？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>复杂数据计算</span></li><li class="option"><b>B</b><span>界面样式调整</span></li><li class="option"><b>C</b><span>数据库表结构修改</span></li><li class="option correct"><b>D</b><span>实现自定义业务逻辑</span></li><li class="option correct"><b>E</b><span>调用第三方SDK</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ADE（A. 复杂数据计算；D. 实现自定义业务逻辑；E. 调用第三方SDK）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ADE" data-search="79 多选题 探索用户行为数据时，为了直观展示多维变量之间的关系，可以采用哪些可视化方法？ A. 平行坐标图 | B. 学习曲线 | C. ROC曲线 | D. 聚类热图 | E. 雷达图 ADE">
+      <div class="top"><span class="no">79</span><span class="type">多选题</span><span class="answer">答案 ADE</span></div>
+      <div class="question">探索用户行为数据时，为了直观展示多维变量之间的关系，可以采用哪些可视化方法？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>平行坐标图</span></li><li class="option"><b>B</b><span>学习曲线</span></li><li class="option"><b>C</b><span>ROC曲线</span></li><li class="option correct"><b>D</b><span>聚类热图</span></li><li class="option correct"><b>E</b><span>雷达图</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ADE（A. 平行坐标图；D. 聚类热图；E. 雷达图）</div>
+    </article>
+    <article class="card" data-type="多选题" data-answer="ABE" data-search="80 多选题 在构建文本在线智能体时，以下哪些技术模块是必不可少的？ A. 自然语言理解（NLU） | B. 知识库问答（KBQA） | C. 声纹识别 | D. 语音识别（ASR） | E. 对话管理（DM） ABE">
+      <div class="top"><span class="no">80</span><span class="type">多选题</span><span class="answer">答案 ABE</span></div>
+      <div class="question">在构建文本在线智能体时，以下哪些技术模块是必不可少的？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>自然语言理解（NLU）</span></li><li class="option correct"><b>B</b><span>知识库问答（KBQA）</span></li><li class="option"><b>C</b><span>声纹识别</span></li><li class="option"><b>D</b><span>语音识别（ASR）</span></li><li class="option correct"><b>E</b><span>对话管理（DM）</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>ABE（A. 自然语言理解（NLU）；B. 知识库问答（KBQA）；E. 对话管理（DM））</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="81 判断题 在语音交互中，只要唤醒词准确，就能保证良好的用户体验。 A. 正确 | B. 错误 B">
+      <div class="top"><span class="no">81</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">在语音交互中，只要唤醒词准确，就能保证良好的用户体验。</div>
+      <ol class="options"><li class="option"><b>A</b><span>正确</span></li><li class="option correct"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="82 判断题 深度学习模型训练中，将学习率设置为0.1，模型快速收敛且稳定，说明学习率越大越好，这种说法是否正确？ A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">82</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">深度学习模型训练中，将学习率设置为0.1，模型快速收敛且稳定，说明学习率越大越好，这种说法是否正确？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="83 判断题 压力测试的目的是让系统在长时间内处于高负载但不超过其最大容量的状态下运行，以检验其稳定性。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">83</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">压力测试的目的是让系统在长时间内处于高负载但不超过其最大容量的状态下运行，以检验其稳定性。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="84 判断题 终端用户数据反馈中，用户的无意识行为（如鼠标移动轨迹）比主动点击反馈更有价值。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">84</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">终端用户数据反馈中，用户的无意识行为（如鼠标移动轨迹）比主动点击反馈更有价值。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="85 判断题 某项目使用留出法将数据集划分为70%训练集和30%测试集。为了获得更稳定的评估结果，团队应该只做一次划分并信任其结果。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">85</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">某项目使用留出法将数据集划分为70%训练集和30%测试集。为了获得更稳定的评估结果，团队应该只做一次划分并信任其结果。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="86 判断题 特征工程中，对所有数值型特征进行归一化处理总是能提升模型性能。 A. 正确 | B. 错误 B">
+      <div class="top"><span class="no">86</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">特征工程中，对所有数值型特征进行归一化处理总是能提升模型性能。</div>
+      <ol class="options"><li class="option"><b>A</b><span>正确</span></li><li class="option correct"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="87 判断题 意图识别与槽位填充通常协同工作，共同完成对话状态管理。 A. 错误 | B. 正确 B">
+      <div class="top"><span class="no">87</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">意图识别与槽位填充通常协同工作，共同完成对话状态管理。</div>
+      <ol class="options"><li class="option"><b>A</b><span>错误</span></li><li class="option correct"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="88 判断题 数据标注工具中的“自动保存”功能属于后端持久化机制的一部分，目的是防止数据丢失。 A. 错误 | B. 正确 B">
+      <div class="top"><span class="no">88</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">数据标注工具中的“自动保存”功能属于后端持久化机制的一部分，目的是防止数据丢失。</div>
+      <ol class="options"><li class="option"><b>A</b><span>错误</span></li><li class="option correct"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="89 判断题 数据增强技术只能应用于图像数据，无法应用于文本或语音数据。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">89</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">数据增强技术只能应用于图像数据，无法应用于文本或语音数据。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="90 判断题 使用5折交叉验证来评估模型性能，最终报告的模型准确率一定是这5次验证准确率的平均值，并且一定比单次留出法评估的准确率高。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">90</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">使用5折交叉验证来评估模型性能，最终报告的模型准确率一定是这5次验证准确率的平均值，并且一定比单次留出法评估的准确率高。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="91 判断题 在监控“智能工厂机械臂”的运作时，算法工程师只需要关注模型识别零件的准确率，机械臂的移动速度是自动化部门的事，无需监控。 A. 正确 | B. 错误 B">
+      <div class="top"><span class="no">91</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">在监控“智能工厂机械臂”的运作时，算法工程师只需要关注模型识别零件的准确率，机械臂的移动速度是自动化部门的事，无需监控。</div>
+      <ol class="options"><li class="option"><b>A</b><span>正确</span></li><li class="option correct"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="92 判断题 DMAIC法中的“改进”阶段通常需要多次迭代才能达到理想效果。 A. 错误 | B. 正确 B">
+      <div class="top"><span class="no">92</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">DMAIC法中的“改进”阶段通常需要多次迭代才能达到理想效果。</div>
+      <ol class="options"><li class="option"><b>A</b><span>错误</span></li><li class="option correct"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="93 判断题 为“海底捞”设计智能传菜机器人时，如果发现机器人识别餐桌的准确率下降，最优的解决方案是立刻暂停所有机器人服务，进行彻底检修。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">93</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">为“海底捞”设计智能传菜机器人时，如果发现机器人识别餐桌的准确率下降，最优的解决方案是立刻暂停所有机器人服务，进行彻底检修。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="94 判断题 箱线图识别异常值时，超出上四分位数加1.5倍四分位距的点一定是错误数据。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">94</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">箱线图识别异常值时，超出上四分位数加1.5倍四分位距的点一定是错误数据。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="95 判断题 数据竞赛团队使用Stacking集成，将基学习器的输出作为元学习器的输入特征，这种说法是否正确？ A. 正确 | B. 错误 A">
+      <div class="top"><span class="no">95</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">数据竞赛团队使用Stacking集成，将基学习器的输出作为元学习器的输入特征，这种说法是否正确？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>正确</span></li><li class="option"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="96 判断题 模型的F1值是其精确率和召回率的算术平均数，因此能同时反映模型的准确性和完整性。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">96</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">模型的F1值是其精确率和召回率的算术平均数，因此能同时反映模型的准确性和完整性。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="97 判断题 在智能体开发中，工具调用必须由开发者手动触发。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">97</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">在智能体开发中，工具调用必须由开发者手动触发。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="98 判断题 所有智能体都必须提供图形用户界面才能完成交互。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">98</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">所有智能体都必须提供图形用户界面才能完成交互。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="99 判断题 服务量指标只能通过人工统计获得，无法通过系统自动计算。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">99</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">服务量指标只能通过人工统计获得，无法通过系统自动计算。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="100 判断题 在智能体开发中，对话流程的优化应优先考虑增加更多节点以覆盖更多场景。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">100</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">在智能体开发中，对话流程的优化应优先考虑增加更多节点以覆盖更多场景。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="101 判断题 在设计一款针对“单一农作物（水稻）”的无人机智能施肥方案时，只要模型对水稻的识别准确率足够高，就可以忽略当地气象数据对施肥量的影响。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">101</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">在设计一款针对“单一农作物（水稻）”的无人机智能施肥方案时，只要模型对水稻的识别准确率足够高，就可以忽略当地气象数据对施肥量的影响。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="102 判断题 客户分群项目使用K-Means，K值通过肘部法则确定后，聚类结果稳定且不依赖初始中心，这种说法是否正确？ A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">102</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">客户分群项目使用K-Means，K值通过肘部法则确定后，聚类结果稳定且不依赖初始中心，这种说法是否正确？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="103 判断题 某货运平台为其“智能调度系统”设计新模型时，由于调度结果直接影响司机收入，算法团队认为“模型性能”比“可解释性”更重要，因此决定使用一个效果最好但决策过程无法解释的复杂模型，无需向司机说明调度依据。 A. 正确 | B. 错误 B">
+      <div class="top"><span class="no">103</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">某货运平台为其“智能调度系统”设计新模型时，由于调度结果直接影响司机收入，算法团队认为“模型性能”比“可解释性”更重要，因此决定使用一个效果最好但决策过程无法解释的复杂模型，无需向司机说明调度依据。</div>
+      <ol class="options"><li class="option"><b>A</b><span>正确</span></li><li class="option correct"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="104 判断题 某AI训练师在非工作时间自行学习数据标注新技术，公司应当支付加班费。 A. 正确 | B. 错误 B">
+      <div class="top"><span class="no">104</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">某AI训练师在非工作时间自行学习数据标注新技术，公司应当支付加班费。</div>
+      <ol class="options"><li class="option"><b>A</b><span>正确</span></li><li class="option correct"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="105 判断题 某AI训练师在标注工作中发现公司系统存在严重漏洞，但公司要求他保密。根据《网络安全法》，训练师应当向有关部门报告。 A. 错误 | B. 正确 B">
+      <div class="top"><span class="no">105</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">某AI训练师在标注工作中发现公司系统存在严重漏洞，但公司要求他保密。根据《网络安全法》，训练师应当向有关部门报告。</div>
+      <ol class="options"><li class="option"><b>A</b><span>错误</span></li><li class="option correct"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="106 判断题 智能体的可解释性设计有助于提升用户对AI的信任度。 A. 正确 | B. 错误 A">
+      <div class="top"><span class="no">106</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">智能体的可解释性设计有助于提升用户对AI的信任度。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>正确</span></li><li class="option"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="107 判断题 在主动学习中，选择模型预测概率最高的样本进行标注，能够最快提升模型性能。 A. 正确 | B. 错误 B">
+      <div class="top"><span class="no">107</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">在主动学习中，选择模型预测概率最高的样本进行标注，能够最快提升模型性能。</div>
+      <ol class="options"><li class="option"><b>A</b><span>正确</span></li><li class="option correct"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="108 判断题 某AI训练师从网上收集了1000张猫的图片用于训练分类模型，这些图片都有原作者。根据《知识产权法》，只要不用于商业目的，就无需获得许可。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">108</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">某AI训练师从网上收集了1000张猫的图片用于训练分类模型，这些图片都有原作者。根据《知识产权法》，只要不用于商业目的，就无需获得许可。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="109 判断题 多模态交互是指同时使用两种或以上交互方式完成同一任务。 A. 正确 | B. 错误 A">
+      <div class="top"><span class="no">109</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">多模态交互是指同时使用两种或以上交互方式完成同一任务。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>正确</span></li><li class="option"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="110 判断题 在构建决策树时，信息增益越大的特征越适合作为根节点，这种说法是否正确？ A. 正确 | B. 错误 A">
+      <div class="top"><span class="no">110</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">在构建决策树时，信息增益越大的特征越适合作为根节点，这种说法是否正确？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>正确</span></li><li class="option"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="111 判断题 在数据标注中，如果大多数标注员对某条数据的理解一致，即使与最初规则不完全吻合，也应以此多数意见为准。 A. 正确 | B. 错误 B">
+      <div class="top"><span class="no">111</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">在数据标注中，如果大多数标注员对某条数据的理解一致，即使与最初规则不完全吻合，也应以此多数意见为准。</div>
+      <ol class="options"><li class="option"><b>A</b><span>正确</span></li><li class="option correct"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="112 判断题 智能体的容错性设计仅包括对用户错误输入的识别和处理。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">112</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">智能体的容错性设计仅包括对用户错误输入的识别和处理。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="113 判断题 在人工智能训练师的培训中，使用真实平台（如扣子平台Coze）的操作环境进行模拟训练，有助于提升学员的岗位适应能力。 A. 正确 | B. 错误 A">
+      <div class="top"><span class="no">113</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">在人工智能训练师的培训中，使用真实平台（如扣子平台Coze）的操作环境进行模拟训练，有助于提升学员的岗位适应能力。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>正确</span></li><li class="option"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="114 判断题 某在线视频平台为“电影”频道设计的智能推荐系统，通过A/B测试发现，新算法使点击率提升了0.5%。因此，可以断定新算法在所有指标上都优于旧算法。 A. 正确 | B. 错误 B">
+      <div class="top"><span class="no">114</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">某在线视频平台为“电影”频道设计的智能推荐系统，通过A/B测试发现，新算法使点击率提升了0.5%。因此，可以断定新算法在所有指标上都优于旧算法。</div>
+      <ol class="options"><li class="option"><b>A</b><span>正确</span></li><li class="option correct"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="115 判断题 人工智能训练师只需精通数据标注即可，模型训练和算法优化是算法工程师的职责，无需过多了解。 A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">115</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">人工智能训练师只需精通数据标注即可，模型训练和算法优化是算法工程师的职责，无需过多了解。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="116 判断题 在OSM模型中，如果“目标”是提升用户满意度，那么“策略”可以是“优化客服响应速度”，而“指标”则可以是“用户满意度评分”。 A. 错误 | B. 正确 B">
+      <div class="top"><span class="no">116</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">在OSM模型中，如果“目标”是提升用户满意度，那么“策略”可以是“优化客服响应速度”，而“指标”则可以是“用户满意度评分”。</div>
+      <ol class="options"><li class="option"><b>A</b><span>错误</span></li><li class="option correct"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="117 判断题 数据标准化可以将所有特征都转换为均值为0、标准差为1的分布，从而消除量纲影响。 A. 正确 | B. 错误 A">
+      <div class="top"><span class="no">117</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">数据标准化可以将所有特征都转换为均值为0、标准差为1的分布，从而消除量纲影响。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>正确</span></li><li class="option"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="118 判断题 电商平台划分数据集时，将验证集用于模型参数更新，这种做法是否正确？ A. 错误 | B. 正确 A">
+      <div class="top"><span class="no">118</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">电商平台划分数据集时，将验证集用于模型参数更新，这种做法是否正确？</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>错误</span></li><li class="option"><b>B</b><span>正确</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 错误）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="A" data-search="119 判断题 在Windows系统中，如果文件扩展名被隐藏，你可以通过文件夹选项中的“查看”选项卡来显示文件扩展名。 A. 正确 | B. 错误 A">
+      <div class="top"><span class="no">119</span><span class="type">判断题</span><span class="answer">答案 A</span></div>
+      <div class="question">在Windows系统中，如果文件扩展名被隐藏，你可以通过文件夹选项中的“查看”选项卡来显示文件扩展名。</div>
+      <ol class="options"><li class="option correct"><b>A</b><span>正确</span></li><li class="option"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>A（A. 正确）</div>
+    </article>
+    <article class="card" data-type="判断题" data-answer="B" data-search="120 判断题 定期流程审核只需要检查标注数据质量，模型训练流程不需要审核。 A. 正确 | B. 错误 B">
+      <div class="top"><span class="no">120</span><span class="type">判断题</span><span class="answer">答案 B</span></div>
+      <div class="question">定期流程审核只需要检查标注数据质量，模型训练流程不需要审核。</div>
+      <ol class="options"><li class="option"><b>A</b><span>正确</span></li><li class="option correct"><b>B</b><span>错误</span></li></ol>
+      <div class="answerText"><b>标准答案：</b>B（B. 错误）</div>
+    </article>
+  </section>
+  <div class="empty" id="empty">没有匹配的题目</div>
+</main>
+<script>
+const q = document.getElementById('q');
+const type = document.getElementById('type');
+const cards = [...document.querySelectorAll('.card')];
+const count = document.getElementById('visibleCount');
+const empty = document.getElementById('empty');
+function filter() {
+  const kw = q.value.trim().toLowerCase();
+  const tp = type.value;
+  let n = 0;
+  for (const c of cards) {
+    const okType = !tp || c.dataset.type === tp;
+    const okKw = !kw || c.dataset.search.toLowerCase().includes(kw);
+    const show = okType && okKw;
+    c.style.display = show ? '' : 'none';
+    if (show) n++;
+  }
+  count.textContent = n;
+  empty.style.display = n ? 'none' : 'block';
+}
+q.addEventListener('input', filter); type.addEventListener('change', filter);
+document.getElementById('compact').onclick = () => document.body.classList.toggle('comfortable');
+const style = document.createElement('style');
+style.textContent = `.comfortable .grid{grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:12px}.comfortable .card{padding:12px}.comfortable .options{grid-template-columns:1fr}.comfortable body{font-size:15px}`;
+document.head.appendChild(style);
+</script>
+</body>
+</html>
