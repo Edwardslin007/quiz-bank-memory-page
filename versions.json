@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-06-11 20:58",
-  "policy": "Versioned pages are stored under /v1/, /v2/, /v3/, /v4/, ... New versions must create a new version folder and must not overwrite old version folders.",
+  "updated_at": "2026-06-11 21:17",
+  "policy": "Versioned pages are stored under /v1/, /v2/, /v3/, /v4/, /v5/, ... New versions must create a new version folder and must not overwrite old version folders.",
   "versions": [
     {
       "version": "v1",
@@ -29,9 +29,16 @@
       "url": "./v4/",
       "title": "题1-题6 高密度复习纲要版",
       "desc": "第四个版本：按知识领域分类拆解，不显示干扰选项，只保留浓缩知识点，并用红色加粗突出正确答案。"
+    },
+    {
+      "version": "v5",
+      "path": "/v5/",
+      "url": "./v5/",
+      "title": "题1-题6 快速做题版",
+      "desc": "第五个版本：完整做题模式自动保存进度，答错进入错题本，并支持错题本浏览与错题循环清除模式。"
     }
   ],
-  "url_rule": "Every concrete version URL must include a version suffix path segment such as /v1/, /v2/, /v3/, /v4/. The root URL is only a version index.",
+  "url_rule": "Every concrete version URL must include a version suffix path segment such as /v1/, /v2/, /v3/, /v4/, /v5/. The root URL is only a version index.",
   "v4_summary": {
     "total": 720,
     "sources": {
@@ -57,5 +64,26 @@
       "开发测试、系统工程与项目协作": 13,
       "其他综合知识": 53
     }
+  },
+  "v5_summary": {
+    "total": 720,
+    "sources": {
+      "题1": 120,
+      "题2": 120,
+      "题3": 120,
+      "题4": 120,
+      "题5": 120,
+      "题6": 120
+    },
+    "types": {
+      "单选题": 360,
+      "多选题": 120,
+      "判断题": 240
+    },
+    "features": [
+      "full quiz mode with localStorage progress",
+      "wrongbook browser",
+      "wrong quiz loop mode"
+    ]
   }
 }

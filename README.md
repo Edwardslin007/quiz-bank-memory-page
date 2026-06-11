@@ -12,7 +12,8 @@ https://edwardslin007.github.io/quiz-bank-memory-page/
 - v2 使用 `/v2/`
 - v3 使用 `/v3/`
 - v4 使用 `/v4/`
-- 后续依次使用 `/v5/`、`/v6/` ……
+- v5 使用 `/v5/`
+- 后续依次使用 `/v6/`、`/v7/` ……
 
 根路径 `/` 只作为版本入口页，不作为具体题库版本。后续新增版本时，只创建新的版本目录，不覆盖旧版本目录。
 
@@ -30,4 +31,7 @@ https://edwardslin007.github.io/quiz-bank-memory-page/
 - v4: https://edwardslin007.github.io/quiz-bank-memory-page/v4/  
   第四个版本，高密度复习纲要版：按知识领域分类拆解，不显示干扰选项，只保留浓缩知识点，并用红色加粗突出正确答案。
 
-更新时间：2026-06-11 20:58
+- v5: https://edwardslin007.github.io/quiz-bank-memory-page/v5/  
+  第五个版本，快速做题版：完整做题自动保存进度，答错进入错题本，支持错题本浏览和错题模式循环清除。
+
+更新时间：2026-06-11 21:17
