@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-06-11 20:41",
-  "policy": "Versioned pages are stored under /v1/, /v2/, ... New versions should not overwrite old version folders.",
+  "updated_at": "2026-06-11 20:44",
+  "policy": "Versioned pages are stored under /v1/, /v2/, /v3/, ... New versions must create a new version folder and must not overwrite old version folders.",
   "versions": [
     {
       "version": "v1",
@@ -16,5 +16,6 @@
       "url": "./v2/",
       "commit": "b37959a"
     }
-  ]
+  ],
+  "url_rule": "Every concrete version URL must include a version suffix path segment such as /v1/, /v2/, /v3/. The root URL is only a version index."
 }
