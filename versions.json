@@ -1,0 +1,20 @@
+{
+  "updated_at": "2026-06-11 20:41",
+  "policy": "Versioned pages are stored under /v1/, /v2/, ... New versions should not overwrite old version folders.",
+  "versions": [
+    {
+      "version": "v1",
+      "title": "题1 单题库速记版",
+      "desc": "第一个版本：只包含题1，共120题。保留原始页面样式和内容。",
+      "url": "./v1/",
+      "commit": "aa4dafc"
+    },
+    {
+      "version": "v2",
+      "title": "题1-题6 合并速记版",
+      "desc": "第二个版本：追加题2到题6，共720题，并优化题目、选项和答案展示样式。",
+      "url": "./v2/",
+      "commit": "b37959a"
+    }
+  ]
+}
