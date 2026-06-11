@@ -1,28 +1,61 @@
 {
-  "updated_at": "2026-06-11 20:49",
-  "policy": "Versioned pages are stored under /v1/, /v2/, /v3/, ... New versions must create a new version folder and must not overwrite old version folders.",
+  "updated_at": "2026-06-11 20:58",
+  "policy": "Versioned pages are stored under /v1/, /v2/, /v3/, /v4/, ... New versions must create a new version folder and must not overwrite old version folders.",
   "versions": [
     {
       "version": "v1",
-      "title": "题1 单题库速记版",
-      "desc": "第一个版本：只包含题1，共120题。保留原始页面样式和内容。",
+      "path": "/v1/",
       "url": "./v1/",
-      "path": "/v1/"
+      "title": "题1 单题库速记版",
+      "desc": "第一个版本：只包含题1，共120题。保留原始页面样式和内容。"
     },
     {
       "version": "v2",
-      "title": "题1-题6 强化样式版",
-      "desc": "第二个版本：包含题1-题6，共720题，并优化题目、选项和答案展示样式。",
+      "path": "/v2/",
       "url": "./v2/",
-      "path": "/v2/"
+      "title": "题1-题6 强化样式版",
+      "desc": "第二个版本：包含题1-题6，共720题，并强化题目、选项和答案展示样式。"
     },
     {
       "version": "v3",
-      "title": "题1-题6 v1风格一页流版",
-      "desc": "第三个版本：保留v1简洁多列卡片排版风格，只扩展为题1-题6共720题，适合从头到尾连续滚动背诵。",
+      "path": "/v3/",
       "url": "./v3/",
-      "path": "/v3/"
+      "title": "题1-题6 v1风格一页流版",
+      "desc": "第三个版本：保留v1简洁多列卡片排版风格，扩展为题1-题6共720题。"
+    },
+    {
+      "version": "v4",
+      "path": "/v4/",
+      "url": "./v4/",
+      "title": "题1-题6 高密度复习纲要版",
+      "desc": "第四个版本：按知识领域分类拆解，不显示干扰选项，只保留浓缩知识点，并用红色加粗突出正确答案。"
     }
   ],
-  "url_rule": "Every concrete version URL must include a version suffix path segment such as /v1/, /v2/, /v3/. The root URL is only a version index."
+  "url_rule": "Every concrete version URL must include a version suffix path segment such as /v1/, /v2/, /v3/, /v4/. The root URL is only a version index.",
+  "v4_summary": {
+    "total": 720,
+    "sources": {
+      "题1": 120,
+      "题2": 120,
+      "题3": 120,
+      "题4": 120,
+      "题5": 120,
+      "题6": 120
+    },
+    "types": {
+      "单选题": 360,
+      "多选题": 120,
+      "判断题": 240
+    },
+    "categories": {
+      "数据标注与质检管理": 192,
+      "数据处理、安全与合规": 53,
+      "Office办公与数字化工具": 26,
+      "智能体、低代码与对话系统": 126,
+      "模型训练、特征工程与评估": 229,
+      "产品体验、用户反馈与运营优化": 28,
+      "开发测试、系统工程与项目协作": 13,
+      "其他综合知识": 53
+    }
+  }
 }

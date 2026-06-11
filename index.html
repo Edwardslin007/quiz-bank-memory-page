@@ -8,12 +8,12 @@
   :root { --bg:#f3f6fb; --card:#fff; --text:#111827; --muted:#64748b; --line:#d7dee8; --blue:#1d4ed8; --green:#047857; }
   * { box-sizing:border-box; }
   body { margin:0; min-height:100vh; background:linear-gradient(180deg,#eaf2ff,#f8fafc 280px,var(--bg)); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif; }
-  main { max-width:980px; margin:0 auto; padding:42px 18px; }
+  main { max-width:1080px; margin:0 auto; padding:42px 18px; }
   .hero { margin-bottom:22px; }
   h1 { margin:0; font-size:34px; letter-spacing:.2px; }
   .lead { margin:10px 0 0; color:var(--muted); font-size:16px; line-height:1.7; }
   .notice { margin-top:16px; padding:12px 14px; border:1px solid #bfdbfe; background:#eff6ff; color:#1e3a8a; border-radius:12px; font-weight:700; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-top:22px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-top:22px; }
   .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px; box-shadow:0 10px 30px rgba(15,23,42,.08); }
   .tag { display:inline-flex; align-items:center; height:30px; padding:0 12px; border-radius:999px; background:#111827; color:#fff; font-weight:900; letter-spacing:.5px; }
   h2 { margin:16px 0 8px; font-size:23px; }
@@ -29,8 +29,8 @@
 <main>
   <section class="hero">
     <h1>题库速记版本入口</h1>
-    <p class="lead">这里保留每一次发布的静态页面版本。所有具体版本都在 URL 里使用 /v1/、/v2/、/v3/ 这样的版本后缀区分；根路径只作为版本入口，不作为某个具体版本。以后新增版本会继续使用 /v4/、/v5/……，不会覆盖旧版本。</p>
-    <div class="notice">推荐直接打开最新版 /v3/；如需查看历史版本，请打开 /v1/ 或 /v2/。</div>
+    <p class="lead">这里保留每一次发布的静态页面版本。所有具体版本都在 URL 里使用 /v1/、/v2/、/v3/、/v4/ 这样的版本后缀区分；根路径只作为版本入口，不作为某个具体版本。</p>
+    <div class="notice">推荐直接打开最新版 /v4/；历史版本仍可通过 /v1/、/v2/、/v3/ 访问。</div>
   </section>
   <section class="grid">
     <article class="card">
@@ -43,19 +43,26 @@
     <article class="card">
       <span class="tag">V2</span>
       <h2>题1-题6 强化样式版</h2>
-      <p>第二个版本：包含题1-题6，共720题，并优化题目、选项和答案展示样式。</p>
+      <p>第二个版本：包含题1-题6，共720题，并强化题目、选项和答案展示样式。</p>
       <div class="meta">版本路径：/v2/</div>
       <a class="btn" href="./v2/">打开 V2</a>
     </article>
-    <article class="card latest">
+    <article class="card">
       <span class="tag">V3</span>
       <h2>题1-题6 v1风格一页流版</h2>
-      <p>第三个版本：保留v1简洁多列卡片排版风格，只扩展为题1-题6共720题，适合从头到尾连续滚动背诵。</p>
+      <p>第三个版本：保留v1简洁多列卡片排版风格，扩展为题1-题6共720题。</p>
       <div class="meta">版本路径：/v3/</div>
       <a class="btn" href="./v3/">打开 V3</a>
     </article>
+    <article class="card latest">
+      <span class="tag">V4</span>
+      <h2>题1-题6 高密度复习纲要版</h2>
+      <p>第四个版本：按知识领域分类拆解，不显示干扰选项，只保留浓缩知识点，并用红色加粗突出正确答案。</p>
+      <div class="meta">版本路径：/v4/</div>
+      <a class="btn" href="./v4/">打开 V4</a>
+    </article>
   </section>
-  <footer>URL 规则：/v1/、/v2/、/v3/ · 更新时间：2026-06-11 20:49 · GitHub Pages 静态版本归档</footer>
+  <footer>URL 规则：/v1/、/v2/、/v3/、/v4/ · 更新时间：2026-06-11 20:58 · GitHub Pages 静态版本归档</footer>
 </main>
 </body>
 </html>
