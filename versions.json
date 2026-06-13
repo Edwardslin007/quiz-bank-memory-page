@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-06-11 21:17",
-  "policy": "Versioned pages are stored under /v1/, /v2/, /v3/, /v4/, /v5/, ... New versions must create a new version folder and must not overwrite old version folders.",
+  "updated_at": "2026-06-13 11:03",
+  "policy": "Versioned pages are stored under /v1/, /v2/, /v3/, /v4/, /v5/, /v6/, ... New versions must create a new version folder and must not overwrite old version folders.",
   "versions": [
     {
       "version": "v1",
@@ -36,9 +36,16 @@
       "url": "./v5/",
       "title": "题1-题6 快速做题版",
       "desc": "第五个版本：完整做题模式自动保存进度，答错进入错题本，并支持错题本浏览与错题循环清除模式。"
+    },
+    {
+      "version": "v6",
+      "path": "/v6/",
+      "url": "./v6/",
+      "title": "题1-题6 答案规律分析版",
+      "desc": "第六个版本：深入统计答案分布、最长选项命中率、判断题绝对化规律、多选题组合和应试猜题策略。"
     }
   ],
-  "url_rule": "Every concrete version URL must include a version suffix path segment such as /v1/, /v2/, /v3/, /v4/, /v5/. The root URL is only a version index.",
+  "url_rule": "Every concrete version URL must include a version suffix path segment such as /v1/, /v2/, /v3/, /v4/, /v5/, /v6/. The root URL is only a version index.",
   "v4_summary": {
     "total": 720,
     "sources": {
@@ -85,5 +92,12 @@
       "wrongbook browser",
       "wrong quiz loop mode"
     ]
+  },
+  "v6_summary": {
+    "total": 720,
+    "single_longest_rank_1": 207,
+    "single_longest_rank_1_rate": 57.5,
+    "judge_false_rate": 70.4,
+    "multi_three_count_rate": 59.2
   }
 }

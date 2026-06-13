@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>V6 题库答案规律分析｜题1-题6</title>
+<style>
+  :root {
+    --bg:#f4f7fb; --paper:#fff; --ink:#111827; --muted:#64748b; --line:#d8e1ee;
+    --blue:#2563eb; --green:#059669; --red:#dc2626; --purple:#7c3aed; --amber:#d97706;
+    --blue-soft:#eff6ff; --green-soft:#ecfdf5; --red-soft:#fff1f2; --amber-soft:#fffbeb;
+    --shadow:0 12px 34px rgba(15,23,42,.08);
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:linear-gradient(180deg,#eaf2ff,#f8fafc 280px,var(--bg)); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif; line-height:1.65; }
+  a { color:inherit; }
+  .wrap { max-width:1180px; margin:0 auto; padding:22px 16px 60px; }
+  header { background:rgba(255,255,255,.92); border:1px solid var(--line); border-radius:24px; padding:24px; box-shadow:var(--shadow); }
+  h1 { margin:0; font-size:32px; line-height:1.18; letter-spacing:.2px; }
+  .lead { margin:10px 0 0; color:var(--muted); font-size:15px; }
+  .nav { display:flex; gap:8px; flex-wrap:wrap; margin-top:16px; }
+  .nav a { text-decoration:none; background:#111827; color:#fff; border-radius:999px; padding:7px 12px; font-size:13px; font-weight:800; }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; margin-top:16px; }
+  .stat { background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:13px 14px; box-shadow:0 2px 10px rgba(15,23,42,.04); }
+  .stat span { display:block; color:var(--muted); font-size:12px; font-weight:700; }
+  .stat b { display:block; font-size:28px; line-height:1.2; margin:4px 0; }
+  .stat em { display:block; color:#475569; font-style:normal; font-size:12px; }
+  .stat.hot { border-color:#fecaca; background:var(--red-soft); }
+  .stat.good { border-color:#a7f3d0; background:var(--green-soft); }
+  section { margin-top:18px; background:var(--paper); border:1px solid var(--line); border-radius:22px; padding:20px; box-shadow:var(--shadow); }
+  h2 { margin:0 0 10px; font-size:24px; }
+  h3 { margin:18px 0 8px; font-size:18px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; }
+  .rule { border:1px solid var(--line); border-radius:18px; padding:15px; background:#fff; }
+  .rule strong { color:var(--red); font-size:20px; }
+  .rule b { color:#111827; }
+  .rule p { margin:8px 0 0; color:#475569; }
+  .bar-row { margin:10px 0; }
+  .bar-label { display:flex; justify-content:space-between; gap:10px; font-size:13px; margin-bottom:4px; }
+  .bar-label span { color:var(--muted); }
+  .bar-track { height:12px; border-radius:999px; background:#e2e8f0; overflow:hidden; }
+  .bar-track i { display:block; height:100%; border-radius:999px; background:var(--blue); }
+  .bar-track i.green { background:var(--green); } .bar-track i.red { background:var(--red); } .bar-track i.purple { background:var(--purple); }
+  table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:14px; font-size:14px; }
+  th,td { border-bottom:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top; }
+  th { background:#f8fafc; color:#334155; }
+  tr:last-child td { border-bottom:0; }
+  .red { color:var(--red); } .green { color:var(--green); }
+  .strategy { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; }
+  .strategy article { border-radius:18px; padding:16px; border:1px solid var(--line); background:#fff; }
+  .strategy h3 { margin:0 0 8px; }
+  ol,ul { margin-top:8px; padding-left:22px; }
+  li { margin:4px 0; }
+  .callout { background:var(--amber-soft); border:1px solid #fde68a; border-radius:16px; padding:12px 14px; color:#78350f; font-weight:750; }
+  .float { position:fixed; right:14px; bottom:16px; display:flex; flex-direction:column; gap:8px; z-index:20; }
+  .float a { text-decoration:none; background:#111827; color:#fff; border-radius:999px; padding:8px 11px; font-size:12px; font-weight:900; box-shadow:var(--shadow); text-align:center; }
+  @media (max-width:720px) { .wrap { padding:12px 8px 42px; } header,section { border-radius:18px; padding:15px; } h1 { font-size:25px; } table { font-size:12px; } th,td { padding:7px; } .float { display:none; } }
+</style>
+</head>
+<body id="top">
+<div class="wrap">
+<header>
+  <h1>V6 题库答案规律分析｜题1-题6</h1>
+  <p class="lead">基于题1-题6共 720 题的答案分布、选项长度、判断题措辞、多选题组合进行统计推理，用于考前快速掌握高收益答题规律。生成时间：2026-06-13 11:03</p>
+  <nav class="nav">
+    <a href="#single">单选规律</a><a href="#judge">判断规律</a><a href="#multi">多选规律</a><a href="#keywords">关键词</a><a href="#strategy">最终策略</a><a href="../">版本入口</a>
+  </nav>
+  <div class="stats">
+    <article class="stat "><span>总题数</span><b>720</b><em>题1-题6全部题目</em></article>
+    <article class="stat good"><span>单选题</span><b>360</b><em>重点看“最长选项”</em></article>
+    <article class="stat "><span>多选题</span><b>120</b><em>多数选3项</em></article>
+    <article class="stat hot"><span>判断题</span><b>240</b><em>默认偏“错误”</em></article>
+    <article class="stat good"><span>最强单选规则</span><b>90.4%</b><em>最长选项比第二长≥5字时命中率</em></article>
+    <article class="stat hot"><span>最强判断规则</span><b>100%</b><em>只要/总是/一定/必须/无需 等基本判错</em></article>
+  </div>
+</header>
+
+<section id="overview">
+  <h2>一页结论</h2>
+  <div class="grid">
+    <article class="rule"><strong>单选看最长</strong><p>正确选项平均长度 <b>11.06</b>，错误选项平均长度 <b>7.39</b>。明显更长、更完整、更专业的选项大概率正确。</p></article>
+    <article class="rule"><strong>判断多为错</strong><p>判断题“错误”共有 <b>169</b> 题，占 <b>70.4%</b>。遇到绝对化表述更应优先判错。</p></article>
+    <article class="rule"><strong>多选多为三项</strong><p>多选题选3项共有 <b>71</b> 题，占 <b>59.2%</b>；A 出现率 81.7%，E 出现率 70.0%。</p></article>
+  </div>
+</section>
+
+<section id="single">
+  <h2>单选题规律：最长选项是第一优先级</h2>
+  <div class="grid">
+    <div>
+      <h3>答案字母分布</h3><div class="bar-row"><div class="bar-label"><b>A</b><span>97/360 · 26.9% </span></div><div class="bar-track"><i class="blue" style="width:26.9%"></i></div></div><div class="bar-row"><div class="bar-label"><b>B</b><span>75/360 · 20.8% </span></div><div class="bar-track"><i class="blue" style="width:20.8%"></i></div></div><div class="bar-row"><div class="bar-label"><b>C</b><span>86/360 · 23.9% </span></div><div class="bar-track"><i class="blue" style="width:23.9%"></i></div></div><div class="bar-row"><div class="bar-label"><b>D</b><span>102/360 · 28.3% </span></div><div class="bar-track"><i class="blue" style="width:28.3%"></i></div></div>
+      <div class="callout">只猜 D 只有 28.3%，远不如“最长选项优先”。</div>
+    </div>
+    <div>
+      <h3>正确答案长度排名</h3><div class="bar-row"><div class="bar-label"><b>第1长</b><span>207/360 · 57.5% </span></div><div class="bar-track"><i class="green" style="width:57.5%"></i></div></div><div class="bar-row"><div class="bar-label"><b>第2长</b><span>59/360 · 16.4% </span></div><div class="bar-track"><i class="blue" style="width:16.4%"></i></div></div><div class="bar-row"><div class="bar-label"><b>第3长</b><span>49/360 · 13.6% </span></div><div class="bar-track"><i class="blue" style="width:13.6%"></i></div></div><div class="bar-row"><div class="bar-label"><b>第4长</b><span>45/360 · 12.5% </span></div><div class="bar-track"><i class="blue" style="width:12.5%"></i></div></div>
+      <div class="callout">正确答案为“第1长”的比例是 57.5%。</div>
+    </div>
+  </div>
+  <h3>长度规则命中率</h3>
+  <div class="grid">
+    <article class="rule"><strong>69.6%</strong><p>当某个选项是唯一最长时，命中 179 / 257。</p></article>
+    <article class="rule"><strong>82.6%</strong><p>最长选项比第二长多 ≥2 个字时，命中率明显上升。</p></article>
+    <article class="rule"><strong>90.4%</strong><p>最长选项比第二长多 ≥5 个字时，几乎就是正确答案。</p></article>
+    <article class="rule"><strong>4.9%</strong><p>唯一最短选项是正确答案的概率极低，通常优先排除。</p></article>
+  </div>
+  <h3>各套题“唯一最长选项”命中率</h3><table><thead><tr><th>题库</th><th>唯一最长样本</th><th>最长命中</th><th>命中率</th></tr></thead><tbody><tr><td>题1</td><td>43</td><td>29</td><td><strong>67.4%</strong></td></tr><tr><td>题2</td><td>41</td><td>28</td><td><strong>68.3%</strong></td></tr><tr><td>题3</td><td>44</td><td>32</td><td><strong>72.7%</strong></td></tr><tr><td>题4</td><td>41</td><td>31</td><td><strong>75.6%</strong></td></tr><tr><td>题5</td><td>47</td><td>36</td><td><strong>76.6%</strong></td></tr><tr><td>题6</td><td>41</td><td>23</td><td><strong>56.1%</strong></td></tr></tbody></table>
+</section>
+
+<section id="judge">
+  <h2>判断题规律：绝对化表达几乎判错</h2>
+  <div class="grid"><div><h3>判断题答案分布</h3><div class="bar-row"><div class="bar-label"><b>错误</b><span>169/240 · 70.4% </span></div><div class="bar-track"><i class="red" style="width:70.4%"></i></div></div><div class="bar-row"><div class="bar-label"><b>正确</b><span>71/240 · 29.6% </span></div><div class="bar-track"><i class="green" style="width:29.6%"></i></div></div></div><div><h3>绝对化词判错率</h3><table><thead><tr><th>绝对化词</th><th>出现次数</th><th>判错次数</th><th>判错率</th></tr></thead><tbody><tr><td>无需</td><td>18</td><td>18</td><td><strong class="red">100.0%</strong></td></tr><tr><td>必须</td><td>15</td><td>15</td><td><strong class="red">100.0%</strong></td></tr><tr><td>只要</td><td>14</td><td>14</td><td><strong class="red">100.0%</strong></td></tr><tr><td>一定</td><td>11</td><td>11</td><td><strong class="red">100.0%</strong></td></tr><tr><td>总是</td><td>5</td><td>5</td><td><strong class="red">100.0%</strong></td></tr><tr><td>不需要</td><td>5</td><td>5</td><td><strong class="red">100.0%</strong></td></tr><tr><td>任何</td><td>1</td><td>1</td><td><strong class="red">100.0%</strong></td></tr><tr><td>所有</td><td>16</td><td>15</td><td><strong class="red">93.8%</strong></td></tr><tr><td>越</td><td>17</td><td>13</td><td><strong class="red">76.5%</strong></td></tr><tr><td>完全</td><td>14</td><td>10</td><td><strong class="red">71.4%</strong></td></tr></tbody></table></div></div>
+  <div class="callout">判断题口诀：看到“只要、总是、一定、必须、所有、无需、不需要”，优先判 <b>错误</b>。</div>
+</section>
+
+<section id="multi">
+  <h2>多选题规律：通常选3个，A/E高频</h2>
+  <div class="grid"><div><h3>正确项数量</h3><div class="bar-row"><div class="bar-label"><b>选2项</b><span>12/120 · 10.0% </span></div><div class="bar-track"><i class="blue" style="width:10.0%"></i></div></div><div class="bar-row"><div class="bar-label"><b>选3项</b><span>71/120 · 59.2% </span></div><div class="bar-track"><i class="purple" style="width:59.2%"></i></div></div><div class="bar-row"><div class="bar-label"><b>选4项</b><span>32/120 · 26.7% </span></div><div class="bar-track"><i class="blue" style="width:26.7%"></i></div></div><div class="bar-row"><div class="bar-label"><b>选5项</b><span>5/120 · 4.2% </span></div><div class="bar-track"><i class="blue" style="width:4.2%"></i></div></div></div><div><h3>各字母进入正确答案频率</h3><div class="bar-row"><div class="bar-label"><b>A</b><span>98/120 · 81.7% </span></div><div class="bar-track"><i class="green" style="width:81.7%"></i></div></div><div class="bar-row"><div class="bar-label"><b>B</b><span>74/120 · 61.7% </span></div><div class="bar-track"><i class="blue" style="width:61.7%"></i></div></div><div class="bar-row"><div class="bar-label"><b>C</b><span>61/120 · 50.8% </span></div><div class="bar-track"><i class="blue" style="width:50.8%"></i></div></div><div class="bar-row"><div class="bar-label"><b>D</b><span>73/120 · 60.8% </span></div><div class="bar-track"><i class="blue" style="width:60.8%"></i></div></div><div class="bar-row"><div class="bar-label"><b>E</b><span>84/120 · 70.0% </span></div><div class="bar-track"><i class="green" style="width:70.0%"></i></div></div></div></div>
+  <h3>高频组合</h3><table><thead><tr><th>多选组合</th><th>次数</th><th>占比</th></tr></thead><tbody><tr><td><strong>ACE</strong></td><td>14</td><td>11.7%</td></tr><tr><td><strong>ABDE</strong></td><td>14</td><td>11.7%</td></tr><tr><td><strong>ADE</strong></td><td>12</td><td>10.0%</td></tr><tr><td><strong>ABE</strong></td><td>11</td><td>9.2%</td></tr><tr><td><strong>ABD</strong></td><td>11</td><td>9.2%</td></tr><tr><td><strong>ABCE</strong></td><td>7</td><td>5.8%</td></tr><tr><td><strong>BCE</strong></td><td>5</td><td>4.2%</td></tr><tr><td><strong>ACD</strong></td><td>5</td><td>4.2%</td></tr><tr><td><strong>ABCDE</strong></td><td>5</td><td>4.2%</td></tr><tr><td><strong>ABCD</strong></td><td>4</td><td>3.3%</td></tr><tr><td><strong>AD</strong></td><td>4</td><td>3.3%</td></tr><tr><td><strong>ABC</strong></td><td>4</td><td>3.3%</td></tr></tbody></table>
+  <div class="callout">多选不会时：先排除绝对化/粗暴化/无关项；剩下倾向选3个；A、E如果不离谱优先保留。</div>
+</section>
+
+<section id="keywords">
+  <h2>关键词规律与题干类型</h2>
+  <div class="grid"><div><h3>正确选项高收益关键词</h3><table><thead><tr><th>正确选项关键词</th><th>出现次数</th><th>含词正确率</th><th>不含词正确率</th></tr></thead><tbody><tr><td>反馈</td><td>12</td><td><strong>83.3%</strong></td><td>36.5%</td></tr><tr><td>评估</td><td>14</td><td><strong>71.4%</strong></td><td>36.5%</td></tr><tr><td>规范</td><td>13</td><td><strong>69.2%</strong></td><td>36.6%</td></tr><tr><td>标准</td><td>22</td><td><strong>54.5%</strong></td><td>36.6%</td></tr><tr><td>质量</td><td>15</td><td><strong>53.3%</strong></td><td>36.6%</td></tr><tr><td>提升</td><td>10</td><td><strong>50.0%</strong></td><td>36.7%</td></tr><tr><td>不</td><td>102</td><td><strong>47.1%</strong></td><td>36.2%</td></tr><tr><td>用户</td><td>91</td><td><strong>46.2%</strong></td><td>36.3%</td></tr><tr><td>标注</td><td>152</td><td><strong>44.1%</strong></td><td>36.2%</td></tr><tr><td>错误</td><td>28</td><td><strong>42.9%</strong></td><td>36.7%</td></tr><tr><td>安全</td><td>24</td><td><strong>41.7%</strong></td><td>36.7%</td></tr><tr><td>流程</td><td>17</td><td><strong>41.2%</strong></td><td>36.7%</td></tr></tbody></table></div><div><h3>题干类型统计</h3><table><thead><tr><th>题干类型</th><th>数量</th><th>单选倾向</th><th>判断倾向</th><th>多选倾向</th></tr></thead><tbody><tr><td>否定/错误/违反/缺点题</td><td>45</td><td>单选最多 C</td><td>判断题错误率 100.0%</td><td>多选常见选3项</td></tr><tr><td>目的/主要/最大价值题</td><td>77</td><td>单选最多 D</td><td>判断题错误率 86.7%</td><td>多选常见选3项</td></tr><tr><td>应该/优先/最适合题</td><td>153</td><td>单选最多 A</td><td>判断题错误率 64.7%</td><td>多选常见选3项</td></tr><tr><td>哪些/包括/正确的有题</td><td>120</td><td>单选最多 B</td><td>判断题错误率 100.0%</td><td>多选常见选3项</td></tr><tr><td>判断绝对化表达题</td><td>106</td><td>单选最多 A</td><td>判断题错误率 89.3%</td><td></td></tr></tbody></table></div></div>
+  <div class="callout">正确选项常体现“规范、标准、质量、反馈、评估、安全、流程闭环”；干扰项常体现“过度绝对、简单粗暴、跳过流程”。</div>
+</section>
+
+<section id="strategy">
+  <h2>最终可执行答题策略</h2>
+  <div class="strategy">
+    <article><h3>单选题</h3><ol><li>优先找明显最长、最具体、最专业的选项。</li><li>带“规范/标准/质量/反馈/评估/隐私/流程”的选项优先。</li><li>明显最短、笼统、粗暴的选项优先排除。</li><li>完全不会时：最长优先；无明显最长再考虑 D/A。</li></ol></article>
+    <article><h3>判断题</h3><ol><li>有“只要/总是/一定/必须/所有/无需/不需要”优先判错。</li><li>“越大越好、总是能提升、只做一次即可”通常错。</li><li>完全不会时，选“错误”的收益更高。</li></ol></article>
+    <article><h3>多选题</h3><ol><li>多数选3项，其次4项。</li><li>A、E进入正确答案频率高。</li><li>保留专业、规范、流程化选项。</li><li>排除绝对化、简单粗暴、与场景无关选项。</li></ol></article>
+  </div>
+</section>
+</div>
+<div class="float"><a href="#top">↑ 顶部</a><a href="../">版本入口</a></div>
+</body>
+</html>
